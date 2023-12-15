@@ -17,18 +17,20 @@ const removeClass = function (element, className) {
 // get random word from the words' array
 const getRandomWord = () => {
 	const randomIndex = Math.ceil(Math.random() * wordsCount);
-	return words[randomIndex];
+	if (randomIndex < 30) return words[randomIndex];
 };
 
 // format a random word
 
 const formatWord = (word) => {
-	if (word)
+	if (word) {
+		console.log(word);
 		return `<div class="word">
         <span class="letter">
             ${word.split("").join('</span><span class="letter">')}
         </span>
     </div>`;
+	}
 };
 
 // initiate game
