@@ -7,7 +7,7 @@ const wordsCount = words.length;
 // class adder and remover
 
 const addClass = function (element, className) {
-	element.classList.add(className);
+	element.className += " " + className;
 };
 
 const removeClass = function (element, className) {
@@ -22,11 +22,10 @@ const getRandomWord = () => {
 
 // format a random word
 
-const formatWord = (word) => `<div class="word">
-        <span class="letter">${word
-					.split("")
-					.join('</span><span class="letter">')}</span>
-    </div>`;
+const formatWord = (word) =>
+	`<div class="word"><span class="letter">${word
+		.split("")
+		.join('</span><span class="letter">')}</span></div>`;
 
 // initiate game
 
@@ -44,22 +43,23 @@ const newGame = () => {
 // handle typing correctness
 document.getElementById("game").addEventListener("keyup", (event) => {
 	const key = event.key;
-	const current = document.querySelector(".letter.current");
-	const expected = current.innerHTML;
+	const currentWord = document.querySelector(".word.current");
+	const currentLetter = document.querySelector(".letter.current");
+	const expected = currentLetter.innerHTML;
 	const isLetter = key.length === 1 && key !== " ";
 	const isSpace = key === " ";
 
 	if (isLetter) {
-		if (current) {
+		if (currentLetter) {
 			if (expected === key) {
-				removeClass(current, "error");
-				addClass(current, "correct");
+				removeClass(currentLetter, "error");
+				addClass(currentLetter, "correct");
 			} else {
-				removeClass(current, "correct");
-				addClass(current, "error");
+				removeClass(currentLetter, "correct");
+				addClass(currentLetter, "error");
 			}
-			removeClass(current, "current");
-			addClass(current.nextSibling, "current");
+			removeClass(currentLetter, "current");
+			addClass(currentLetter.nextSibling, "current");
 		}
 	}
 
@@ -69,7 +69,15 @@ document.getElementById("game").addEventListener("keyup", (event) => {
 			const lettersToJump = [
 				...document.querySelectorAll(".word.current .letter:not(.correct)"),
 			];
-			lettersToJump.forEach((letter) => addClass(letter, "error"));
+			lettersToJump.forEach((letter) => {
+				addClass(letter, "error");
+			});
+			removeClass(currentWord, "current");
+			addClass(currentWord.nextSibling, "current");
+			if (currentLetter) {
+				removeClass(currentLetter, "current");
+				addClass(currentWord.nextSibling.firstChild, "current");
+			}
 		}
 	}
 });
