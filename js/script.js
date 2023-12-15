@@ -13,7 +13,10 @@ const getRandomWord = () => {
 
 // format a random word
 
-const formatWord = (word) => `<div class="word">${word}</div>`;
+const formatWord = (word) =>
+	`<div class="word"><span class="letter">${word
+		.split("")
+		.join('</span><span class="letter">')}</span></div>`;
 
 // initiate game
 
