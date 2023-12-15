@@ -56,6 +56,9 @@ body {
 	position: relative;
 	padding-inline: 9rem;
 }
+.app__gamePage-gameArea:focus {
+	outline: none;
+}
 
 .app__gamePage-gameArea_words {
 	line-height: 30px;
