@@ -25,7 +25,7 @@ const getRandomWord = () => {
 const formatWord = (word) =>
 	`<div class="word">
         <span class="letter">
-            ${word.split("").join('</span><span class="letter">')}
+            ${word && word.split("").join('</span><span class="letter">')}
         </span>
     </div>`;
 
