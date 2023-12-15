@@ -1,8 +1,9 @@
 :root {
 	--color-bg: #333;
-	--color-text-secondary: #666;
-	--color-text-primary: #fff;
 	--color-primary: #fd4;
+	--color-error: #f55;
+	--color-text-primary: #fff;
+	--color-text-secondary: #666;
 
 	--font-words: "Roboto Nono", monospace;
 }
@@ -86,4 +87,12 @@ div.word {
 
 .app__gamePage-gameArea:focus .app__gamePage-gameArea_focus {
 	display: none;
+}
+
+.letter.correct {
+	color: var(--color-text-primary);
+}
+
+.letter.error {
+	color: var(--color-error);
 }

@@ -7,16 +7,17 @@ const wordsCount = words.length;
 // get random word from the words' array
 const getRandomWord = () => {
 	const randomIndex = Math.ceil(Math.random() * wordsCount);
-	console.log(words[randomIndex] + " " + randomIndex);
 	return words[randomIndex];
 };
 
 // format a random word
 
 const formatWord = (word) =>
-	`<div class="word"><span class="letter">${word
-		.split("")
-		.join('</span><span class="letter">')}</span></div>`;
+	`<div class="word">
+        <span class="letter">
+            ${word.split("").join('</span><span class="letter">')}
+        </span>
+    </div>`;
 
 // initiate game
 
