@@ -22,12 +22,14 @@ const getRandomWord = () => {
 
 // format a random word
 
-const formatWord = (word) =>
-	`<div class="word">
+const formatWord = (word) => {
+	if (word)
+		return `<div class="word">
         <span class="letter">
-            ${word && word.split("").join('</span><span class="letter">')}
+            ${word.split("").join('</span><span class="letter">')}
         </span>
     </div>`;
+};
 
 // initiate game
 
