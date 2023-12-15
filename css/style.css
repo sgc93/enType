@@ -2,6 +2,8 @@
 	--color-bg: #333;
 	--color-text-secondary: #fff;
 	--color-text-primary: #fd4;
+
+	--font-words: "Roboto Nono", monospace;
 }
 
 * {
@@ -44,6 +46,7 @@ h1 {
 #newBtn button {
 	background: rgba(255, 255, 255, 0.2);
 	border: none;
+	outline: none;
 	border-radius: 8px;
 	color: var(--color-text-secondary);
 	padding: 5px 10px;
@@ -54,4 +57,16 @@ h1 {
 
 .app__gamePage-gameArea {
 	padding-inline: 9rem;
+}
+
+.app__gamePage-gameArea_words {
+	line-height: 30px;
+	height: 90px;
+	overflow: hidden;
+}
+
+div.word {
+	display: inline-block;
+	font-family: var(--font-words);
+	margin: 0 3px;
 }
