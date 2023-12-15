@@ -1,0 +1,15 @@
+:root {
+	--color-bg: #333;
+	--color-text-secondary: #fff;
+	--color-text-primary: #fd4;
+}
+
+body {
+	font-family: "Roboto", sans-serif;
+	background-color: var(--color-bg);
+	color: var(--color-text-primary);
+}
+
+h1 {
+	color: var(--color-text-primary);
+}
