@@ -26,9 +26,9 @@ const formatWord = (word) => {
 	if (word) {
 		console.log(word);
 		return `<div class="word">
-        <span class="letter">
-            ${word.split("").join('</span><span class="letter">')}
-        </span>
+        <span class="letter">${word
+					.split("")
+					.join('</span><span class="letter">')}</span>
     </div>`;
 	}
 };
@@ -48,6 +48,8 @@ const newGame = () => {
 
 document.getElementById("game").addEventListener("keyup", (event) => {
 	const key = event.key;
+	const current = document.querySelector(".letter.current");
+	const expected = current.innerHTML;
 });
 
 newGame();
