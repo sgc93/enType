@@ -1,7 +1,8 @@
 :root {
 	--color-bg: #333;
-	--color-text-secondary: #fff;
-	--color-text-primary: #fd4;
+	--color-text-secondary: #666;
+	--color-text-primary: #fff;
+	--color-primary: #fd4;
 
 	--font-words: "Roboto Nono", monospace;
 }
@@ -15,7 +16,7 @@
 body {
 	font-family: "Roboto", sans-serif;
 	background-color: var(--color-bg);
-	color: var(--color-text-primary);
+	color: var(--color-primary);
 }
 
 .app__gamePage {
@@ -27,16 +28,11 @@ body {
 	flex-direction: column;
 }
 
-h1 {
-	color: var(--color-text-primary);
-}
-
 .app__gamePage-info {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 
 	padding: 8rem 8rem 2rem;
-	color: var(--color-text-primary);
 }
 
 #newBtn {
@@ -71,6 +67,7 @@ div.word {
 	display: inline-block;
 	font-family: var(--font-words);
 	margin: 0 3px;
+	color: var(--color-text-secondary);
 }
 
 .app__gamePage-gameArea_focus {
@@ -79,7 +76,7 @@ div.word {
 	text-align: center;
 	margin-top: 35px;
 
-	color: var(--color-text-secondary);
+	color: var(--color-text-primary);
 }
 
 /* handle starting game with focusing */
