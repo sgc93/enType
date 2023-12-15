@@ -57,6 +57,8 @@ document.getElementById("game").addEventListener("keyup", (event) => {
 				removeClass(current, "correct");
 				addClass(current, "error");
 			}
+			removeClass(current, "current");
+			addClass(current.nextSibling, "current");
 		}
 	}
 });
