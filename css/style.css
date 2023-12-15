@@ -56,6 +56,7 @@ h1 {
 /* typing area */
 
 .app__gamePage-gameArea {
+	position: relative;
 	padding-inline: 9rem;
 }
 
@@ -63,10 +64,20 @@ h1 {
 	line-height: 30px;
 	height: 90px;
 	overflow: hidden;
+	filter: blur(3px);
 }
 
 div.word {
 	display: inline-block;
 	font-family: var(--font-words);
 	margin: 0 3px;
+}
+
+.app__gamePage-gameArea_focus {
+	position: absolute;
+	inset: 0;
+	text-align: center;
+	margin-top: 30px;
+
+	color: var(--color-text-secondary);
 }
