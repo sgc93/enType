@@ -41,10 +41,24 @@ const newGame = () => {
 	addClass(document.querySelector(".letter"), "current");
 };
 
+// handle typing correctness
 document.getElementById("game").addEventListener("keyup", (event) => {
 	const key = event.key;
 	const current = document.querySelector(".letter.current");
 	const expected = current.innerHTML;
+	const isLetter = key.length === 1 && key !== " ";
+
+	if (isLetter) {
+		if (current) {
+			if (expected === key) {
+				removeClass(current, "error");
+				addClass(current, "correct");
+			} else {
+				removeClass(current, "correct");
+				addClass(current, "error");
+			}
+		}
+	}
 });
 
 newGame();
