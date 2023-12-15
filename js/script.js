@@ -45,9 +45,10 @@ document.getElementById("game").addEventListener("keyup", (event) => {
 	const key = event.key;
 	const currentWord = document.querySelector(".word.current");
 	const currentLetter = document.querySelector(".letter.current");
-	const expected = currentLetter.innerHTML;
+	const expected = currentLetter?.innerHTML || " ";
 	const isLetter = key.length === 1 && key !== " ";
 	const isSpace = key === " ";
+	console.log(expected);
 
 	if (isLetter) {
 		if (currentLetter) {
@@ -59,12 +60,14 @@ document.getElementById("game").addEventListener("keyup", (event) => {
 				addClass(currentLetter, "error");
 			}
 			removeClass(currentLetter, "current");
-			addClass(currentLetter.nextSibling, "current");
+			if (currentLetter.nextSibling) {
+				addClass(currentLetter.nextSibling, "current");
+			}
 		}
 	}
 
-	console.log(isSpace);
 	if (isSpace) {
+		console.log(expected);
 		if (expected !== " ") {
 			const lettersToJump = [
 				...document.querySelectorAll(".word.current .letter:not(.correct)"),
@@ -78,6 +81,10 @@ document.getElementById("game").addEventListener("keyup", (event) => {
 				removeClass(currentLetter, "current");
 				addClass(currentWord.nextSibling.firstChild, "current");
 			}
+		} else {
+			removeClass(currentWord, "current");
+			addClass(currentWord.nextSibling, "current");
+			addClass(currentWord.nextSibling.firstChild, "current");
 		}
 	}
 });
