@@ -96,3 +96,33 @@ div.word {
 .letter.error {
 	color: var(--color-error);
 }
+
+/* blinking leading cursor */
+
+.app__gamePage-gameArea_cursor {
+	display: none;
+	position: fixed;
+	top: 292px;
+	left: 226px;
+	width: 0.5px;
+	height: 13px;
+	background-color: var(--color-primary);
+
+	animation: blink-cursor 0.3s infinite;
+}
+
+@keyframes blink-cursor {
+	0% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+.app__gamePage-gameArea:focus .app__gamePage-gameArea_cursor {
+	display: block;
+}
