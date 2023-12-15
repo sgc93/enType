@@ -63,6 +63,11 @@ document.getElementById("game").addEventListener("keyup", (event) => {
 			if (currentLetter.nextSibling) {
 				addClass(currentLetter.nextSibling, "current");
 			}
+		} else {
+			const extraLetter = document.createElement("span");
+			extraLetter.innerHTML = key;
+			extraLetter.className = "letter error extra";
+			currentWord.appendChild(extraLetter);
 		}
 	}
 
