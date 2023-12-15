@@ -47,6 +47,7 @@ document.getElementById("game").addEventListener("keyup", (event) => {
 	const current = document.querySelector(".letter.current");
 	const expected = current.innerHTML;
 	const isLetter = key.length === 1 && key !== " ";
+	const isSpace = key === " ";
 
 	if (isLetter) {
 		if (current) {
@@ -59,6 +60,16 @@ document.getElementById("game").addEventListener("keyup", (event) => {
 			}
 			removeClass(current, "current");
 			addClass(current.nextSibling, "current");
+		}
+	}
+
+	console.log(isSpace);
+	if (isSpace) {
+		if (expected !== " ") {
+			const lettersToJump = [
+				...document.querySelectorAll(".word.current .letter:not(.correct)"),
+			];
+			lettersToJump.forEach((letter) => addClass(letter, "error"));
 		}
 	}
 });
