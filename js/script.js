@@ -3,7 +3,7 @@ const words =
 		" "
 	);
 const wordsCount = words.length;
-const gameTime = 5;
+const gameTime = 30 * 1000;
 window.timer = null;
 window.startTime = null;
 window.endTime = null;
@@ -35,11 +35,10 @@ const formatWord = (word) =>
 
 const newGame = () => {
 	document.getElementById("words").innerHTML = ""; // clearing
-	var i;
-	for (i = 0; i < 200; i++) {
+	for (var i = 0; i < 200; i++) {
 		document.getElementById("words").innerHTML += formatWord(getRandomWord());
 	}
-
+	document.getElementById("timer").innerHTML = gameTime / 1000 + "";
 	addClass(document.querySelector(".word"), "current");
 	addClass(document.querySelector(".letter"), "current");
 };
@@ -61,7 +60,7 @@ const getWPM = () => {
 		return incorrectLetters.length === 0;
 	});
 
-	const WPM = (correctWords.length / 1000) * 60000;
+	const WPM = (correctWords.length / gameTime) * 60000;
 	console.log("correct words: " + correctWords.length);
 	return WPM;
 };
@@ -93,7 +92,7 @@ document.getElementById("game").addEventListener("keyup", (event) => {
 			const currentTime = new Date().getTime();
 			const msPassed = currentTime - window.startTime;
 			const sPassed = Math.round(msPassed / 1000);
-			const sRemain = gameTime - sPassed;
+			const sRemain = gameTime / 1000 - sPassed;
 			if (sRemain <= 0) {
 				gameOver();
 				return;
@@ -113,13 +112,6 @@ document.getElementById("game").addEventListener("keyup", (event) => {
 		//  handle typing alphabetical letters
 		if (currentLetter) {
 			addClass(currentLetter, key === expected ? "correct" : "error");
-			// if (expected === key) {
-			// 	removeClass(currentLetter, "error");
-			// 	addClass(currentLetter, "correct");
-			// } else {
-			// 	removeClass(currentLetter, "correct");
-			// 	addClass(currentLetter, "error");
-			// }
 			removeClass(currentLetter, "current");
 			if (currentLetter.nextSibling) {
 				addClass(currentLetter.nextSibling, "current");
