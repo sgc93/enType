@@ -44,9 +44,32 @@ const newGame = () => {
 	addClass(document.querySelector(".letter"), "current");
 };
 
+const getWPM = () => {
+	const allWords = [...document.querySelectorAll(".word")];
+	const lastTypedWord = document.querySelector(".word.current");
+	const lastTypedWordIndex = allWords.indexOf(lastTypedWord);
+	const typedWords = allWords.slice(0, lastTypedWordIndex);
+	const correctWords = typedWords.filter((word) => {
+		const letters = [...word.children];
+		const correctLetters = letters.filter((letter) =>
+			letter.className.includes("correct")
+		);
+		const incorrectLetters = letters.filter((letter) =>
+			letter.className.includes("error")
+		);
+		console.log(word.length, " ", correctLetters.length);
+		return incorrectLetters.length === 0;
+	});
+
+	const WPM = (correctWords.length / 1000) * 60000;
+	console.log("correct words: " + correctWords.length);
+	return WPM;
+};
+
 const gameOver = () => {
 	clearInterval(window.timer);
 	addClass(document.getElementById("game"), "over");
+	document.getElementById("timer").innerHTML = getWPM() + "";
 };
 
 // handle typing correctness
@@ -73,9 +96,10 @@ document.getElementById("game").addEventListener("keyup", (event) => {
 			const sRemain = gameTime - sPassed;
 			if (sRemain <= 0) {
 				gameOver();
+				return;
 			}
-			const info = document.getElementById("info");
-			info.innerHTML = sRemain + "";
+			const timerInfo = document.getElementById("timer");
+			timerInfo.innerHTML = sRemain + "";
 		}, 1000);
 	}
 
@@ -88,13 +112,14 @@ document.getElementById("game").addEventListener("keyup", (event) => {
 	if (isLetter) {
 		//  handle typing alphabetical letters
 		if (currentLetter) {
-			if (expected === key) {
-				removeClass(currentLetter, "error");
-				addClass(currentLetter, "correct");
-			} else {
-				removeClass(currentLetter, "correct");
-				addClass(currentLetter, "error");
-			}
+			addClass(currentLetter, key === expected ? "correct" : "error");
+			// if (expected === key) {
+			// 	removeClass(currentLetter, "error");
+			// 	addClass(currentLetter, "correct");
+			// } else {
+			// 	removeClass(currentLetter, "correct");
+			// 	addClass(currentLetter, "error");
+			// }
 			removeClass(currentLetter, "current");
 			if (currentLetter.nextSibling) {
 				addClass(currentLetter.nextSibling, "current");
@@ -159,7 +184,6 @@ document.getElementById("game").addEventListener("keyup", (event) => {
 	const nextLetter = document.querySelectorAll(".letter.current");
 	const cursor = document.getElementById("cursor");
 	let left = parseInt(cursor.style.left || "226px");
-	console.log(left);
 	if (currentLetter) {
 		left += 10;
 		cursor.style.left = left + "px";
