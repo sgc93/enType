@@ -54,8 +54,8 @@ document.getElementById("game").addEventListener("keyup", (event) => {
 	const isLastWord = Boolean(!currentWord.nextSibling);
 	console.log(isLastWord);
 	console.log("key :" + key + ", expected :" + expected);
-	// console.log("current letter: " + currentLetter.innerHTML);
 
+	//  handle typing alphabetical letters
 	if (isLetter) {
 		if (currentLetter) {
 			if (expected === key) {
@@ -77,6 +77,7 @@ document.getElementById("game").addEventListener("keyup", (event) => {
 		}
 	}
 
+	// handle spacing
 	if (isSpace) {
 		if (expected !== " ") {
 			const lettersToJump = [
@@ -98,6 +99,7 @@ document.getElementById("game").addEventListener("keyup", (event) => {
 		}
 	}
 
+	// handle backspace
 	if (isBackspace) {
 		if (currentLetter && isFirstLetter && !isFirstWord) {
 			// make previous word current and its last letter current
