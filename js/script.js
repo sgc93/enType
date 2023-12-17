@@ -35,6 +35,10 @@ const formatWord = (word) =>
 
 const newGame = () => {
 	document.getElementById("words").innerHTML = ""; // clearing
+	if (document.querySelector("#game.over")) {
+		document.querySelector("#game.over").classList.remove("over");
+	}
+
 	for (var i = 0; i < 200; i++) {
 		document.getElementById("words").innerHTML += formatWord(getRandomWord());
 	}
@@ -180,5 +184,10 @@ document.getElementById("game").addEventListener("keyup", (event) => {
 		left += 10;
 		cursor.style.left = left + "px";
 	}
+});
+
+document.getElementById("newGameBtn").addEventListener("click", () => {
+	gameOver();
+	newGame();
 });
 newGame();
