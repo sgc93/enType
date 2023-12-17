@@ -134,3 +134,15 @@ div.word {
 .app__gamePage-gameArea:focus .app__gamePage-gameArea_cursor {
 	display: block;
 }
+
+#game.over .app__gamePage-gameArea_words {
+	filter: blur(3px);
+}
+
+#game.over .app__gamePage-gameArea_cursor {
+	display: none;
+}
+
+#game.over .app__gamePage-gameArea_focus {
+	display: none;
+}
