@@ -32,7 +32,7 @@ const formatWord = (word) =>
 const newGame = () => {
 	document.getElementById("words").innerHTML = ""; // clearing
 	var i;
-	for (i = 0; i < 10; i++) {
+	for (i = 0; i < 3; i++) {
 		document.getElementById("words").innerHTML += formatWord(getRandomWord());
 	}
 
@@ -51,7 +51,8 @@ document.getElementById("game").addEventListener("keyup", (event) => {
 	const isBackspace = key === "Backspace";
 	const isFirstLetter = currentLetter === currentWord.firstChild;
 	const isFirstWord = Boolean(!currentWord.previousSibling);
-	console.log(isFirstWord);
+	const isLastWord = Boolean(!currentWord.nextSibling);
+	console.log(isLastWord);
 	console.log("key :" + key + ", expected :" + expected);
 	// console.log("current letter: " + currentLetter.innerHTML);
 
@@ -68,7 +69,7 @@ document.getElementById("game").addEventListener("keyup", (event) => {
 			if (currentLetter.nextSibling) {
 				addClass(currentLetter.nextSibling, "current");
 			}
-		} else {
+		} else if (!isLastWord) {
 			const extraLetter = document.createElement("span");
 			extraLetter.innerHTML = key;
 			extraLetter.className = "letter error extra";
