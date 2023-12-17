@@ -44,6 +44,11 @@ const newGame = () => {
 	addClass(document.querySelector(".letter"), "current");
 };
 
+const gameOver = () => {
+	clearInterval(window.timer);
+	addClass(document.getElementById("game"), "over");
+};
+
 // handle typing correctness
 document.getElementById("game").addEventListener("keyup", (event) => {
 	const key = event.key;
@@ -58,22 +63,30 @@ document.getElementById("game").addEventListener("keyup", (event) => {
 	const isLastWord = Boolean(!currentWord.nextSibling);
 
 	if (!window.timer && isLetter) {
-		window.timer ==
-			setInterval(() => {
-				if (!window.startTime) {
-					window.startTime = new Date().getTime();
-				}
-				const currentTime = new Date().getTime();
-				const msPassed = currentTime - window.startTime;
-				const sPassed = Math.round(msPassed / 1000);
-				const sRemain = gameTime - sPassed;
-				const info = document.getElementById("info");
-				info.innerHTML = sRemain + "";
-			}, 1000);
+		window.timer = setInterval(() => {
+			if (!window.startTime) {
+				window.startTime = new Date().getTime();
+			}
+			const currentTime = new Date().getTime();
+			const msPassed = currentTime - window.startTime;
+			const sPassed = Math.round(msPassed / 1000);
+			const sRemain = gameTime - sPassed;
+			if (sRemain <= 0) {
+				gameOver();
+			}
+			const info = document.getElementById("info");
+			info.innerHTML = sRemain + "";
+		}, 1000);
 	}
 
-	//  handle typing alphabetical letters
+	// game over
+
+	if (document.querySelector("#game.over")) {
+		return;
+	}
+
 	if (isLetter) {
+		//  handle typing alphabetical letters
 		if (currentLetter) {
 			if (expected === key) {
 				removeClass(currentLetter, "error");
