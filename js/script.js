@@ -3,6 +3,10 @@ const words =
 		" "
 	);
 const wordsCount = words.length;
+const gameTime = 5;
+window.timer = null;
+window.startTime = null;
+window.endTime = null;
 
 // class adder and remover
 
@@ -32,7 +36,7 @@ const formatWord = (word) =>
 const newGame = () => {
 	document.getElementById("words").innerHTML = ""; // clearing
 	var i;
-	for (i = 0; i < 3; i++) {
+	for (i = 0; i < 200; i++) {
 		document.getElementById("words").innerHTML += formatWord(getRandomWord());
 	}
 
@@ -52,8 +56,21 @@ document.getElementById("game").addEventListener("keyup", (event) => {
 	const isFirstLetter = currentLetter === currentWord.firstChild;
 	const isFirstWord = Boolean(!currentWord.previousSibling);
 	const isLastWord = Boolean(!currentWord.nextSibling);
-	console.log(isLastWord);
-	console.log("key :" + key + ", expected :" + expected);
+
+	if (!window.timer && isLetter) {
+		window.timer ==
+			setInterval(() => {
+				if (!window.startTime) {
+					window.startTime = new Date().getTime();
+				}
+				const currentTime = new Date().getTime();
+				const msPassed = currentTime - window.startTime;
+				const sPassed = Math.round(msPassed / 1000);
+				const sRemain = gameTime - sPassed;
+				const info = document.getElementById("info");
+				info.innerHTML = sRemain + "";
+			}, 1000);
+	}
 
 	//  handle typing alphabetical letters
 	if (isLetter) {
@@ -128,9 +145,9 @@ document.getElementById("game").addEventListener("keyup", (event) => {
 	// handle cursor movement
 	const nextLetter = document.querySelectorAll(".letter.current");
 	const cursor = document.getElementById("cursor");
-	let left = 226;
+	let left = parseInt(cursor.style.left || "226px");
+	console.log(left);
 	if (currentLetter) {
-		// cursor.style.top = "10px";
 		left += 10;
 		cursor.style.left = left + "px";
 	}
