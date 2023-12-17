@@ -35,6 +35,9 @@ const formatWord = (word) =>
 
 const newGame = () => {
 	document.getElementById("words").innerHTML = ""; // clearing
+	window.startTime = null;
+	window.endTime = null;
+	window.timer = null;
 	if (document.querySelector("#game.over")) {
 		document.querySelector("#game.over").classList.remove("over");
 	}
@@ -87,7 +90,7 @@ document.getElementById("game").addEventListener("keyup", (event) => {
 	const isFirstLetter = currentLetter === currentWord.firstChild;
 	const isFirstWord = Boolean(!currentWord.previousSibling);
 	const isLastWord = Boolean(!currentWord.nextSibling);
-
+	console.log(window.timer);
 	if (!window.timer && isLetter) {
 		window.timer = setInterval(() => {
 			if (!window.startTime) {
@@ -187,6 +190,7 @@ document.getElementById("game").addEventListener("keyup", (event) => {
 });
 
 document.getElementById("newGameBtn").addEventListener("click", () => {
+	clearInterval(timer);
 	gameOver();
 	newGame();
 });
