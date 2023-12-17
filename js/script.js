@@ -32,7 +32,7 @@ const formatWord = (word) =>
 const newGame = () => {
 	document.getElementById("words").innerHTML = ""; // clearing
 	var i;
-	for (i = 0; i < 200; i++) {
+	for (i = 0; i < 10; i++) {
 		document.getElementById("words").innerHTML += formatWord(getRandomWord());
 	}
 
@@ -48,7 +48,12 @@ document.getElementById("game").addEventListener("keyup", (event) => {
 	const expected = currentLetter?.innerHTML || " ";
 	const isLetter = key.length === 1 && key !== " ";
 	const isSpace = key === " ";
-	console.log(expected);
+	const isBackspace = key === "Backspace";
+	const isFirstLetter = currentLetter === currentWord.firstChild;
+	const isFirstWord = Boolean(!currentWord.previousSibling);
+	console.log(isFirstWord);
+	console.log("key :" + key + ", expected :" + expected);
+	// console.log("current letter: " + currentLetter.innerHTML);
 
 	if (isLetter) {
 		if (currentLetter) {
@@ -72,7 +77,6 @@ document.getElementById("game").addEventListener("keyup", (event) => {
 	}
 
 	if (isSpace) {
-		console.log(expected);
 		if (expected !== " ") {
 			const lettersToJump = [
 				...document.querySelectorAll(".word.current .letter:not(.correct)"),
@@ -92,6 +96,40 @@ document.getElementById("game").addEventListener("keyup", (event) => {
 			addClass(currentWord.nextSibling.firstChild, "current");
 		}
 	}
-});
 
+	if (isBackspace) {
+		if (currentLetter && isFirstLetter && !isFirstWord) {
+			// make previous word current and its last letter current
+			removeClass(currentWord, "current");
+			addClass(currentWord.previousSibling, "current");
+			removeClass(currentLetter, "current");
+			addClass(currentWord.previousSibling.lastChild, "current");
+			removeClass(currentWord.previousSibling.lastChild, "correct");
+			removeClass(currentWord.previousSibling.lastChild, "error");
+		}
+
+		if (currentLetter && !isFirstLetter) {
+			removeClass(currentLetter, "current");
+			addClass(currentLetter.previousSibling, "current");
+			removeClass(currentLetter.previousSibling, "correct");
+			removeClass(currentLetter.previousSibling, "error");
+		}
+
+		if (currentWord && !currentLetter) {
+			addClass(currentWord.lastChild, "current");
+			removeClass(currentWord.lastChild, "correct");
+			removeClass(currentWord.lastChild, "error");
+		}
+	}
+
+	// handle cursor movement
+	const nextLetter = document.querySelectorAll(".letter.current");
+	const cursor = document.getElementById("cursor");
+	let left = 226;
+	if (currentLetter) {
+		// cursor.style.top = "10px";
+		left += 10;
+		cursor.style.left = left + "px";
+	}
+});
 newGame();
