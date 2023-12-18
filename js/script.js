@@ -63,7 +63,6 @@ const getWPM = () => {
 		const incorrectLetters = letters.filter((letter) =>
 			letter.className.includes("error")
 		);
-		console.log(word.length, " ", correctLetters.length);
 		return incorrectLetters.length === 0;
 	});
 
@@ -88,9 +87,10 @@ document.getElementById("game").addEventListener("keyup", (event) => {
 	const isSpace = key === " ";
 	const isBackspace = key === "Backspace";
 	const isFirstLetter = currentLetter === currentWord.firstChild;
+	const isLastLetter = currentLetter === currentWord.lastChild;
 	const isFirstWord = Boolean(!currentWord.previousSibling);
 	const isLastWord = Boolean(!currentWord.nextSibling);
-	console.log(window.timer);
+
 	if (!window.timer && isLetter) {
 		window.timer = setInterval(() => {
 			if (!window.startTime) {
@@ -180,13 +180,18 @@ document.getElementById("game").addEventListener("keyup", (event) => {
 	}
 
 	// handle cursor movement
-	const nextLetter = document.querySelectorAll(".letter.current");
+	const nextLetter = document.querySelector(".letter.current");
+	const nextWord = document.querySelector(".word.current");
 	const cursor = document.getElementById("cursor");
-	let left = parseInt(cursor.style.left || "226px");
-	if (currentLetter) {
-		left += 10;
-		cursor.style.left = left + "px";
-	}
+
+	cursor.style.top =
+		(nextLetter || nextWord).getBoundingClientRect().top + nextLetter
+			? 4
+			: 8 + "px";
+	cursor.style.left =
+		(nextLetter || nextWord).getBoundingClientRect()[
+			nextLetter ? "left" : "right"
+		] + "px";
 });
 
 document.getElementById("newGameBtn").addEventListener("click", () => {
