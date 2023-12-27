@@ -183,7 +183,7 @@ document.getElementById("game").addEventListener("keyup", (event) => {
 
 	console.log(currentWord.getBoundingClientRect().top);
 	// handle line moves
-	if (currentWord.getBoundingClientRect().top > 363) {
+	if (currentWord.getBoundingClientRect().top > 330) {
 		const words = document.getElementById("words");
 		const margin = parseInt(words.style.marginTop || "0px");
 		words.style.marginTop = margin - 35 + "px";
