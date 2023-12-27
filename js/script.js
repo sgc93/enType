@@ -37,6 +37,8 @@ const newGame = () => {
 	document.getElementById("words").innerHTML = ""; // clearing
 	document.getElementById("cursor").style.left = 390 + "px";
 	document.getElementById("cursor").style.top = 285 + "px";
+	removeClass(restart, "show");
+	addClass(restart, "hidden");
 	window.startTime = null;
 	window.endTime = null;
 	window.timer = null;
@@ -92,6 +94,7 @@ document.getElementById("game").addEventListener("keyup", (event) => {
 	const isLastLetter = currentLetter === currentWord.lastChild;
 	const isFirstWord = Boolean(!currentWord.previousSibling);
 	const isLastWord = Boolean(!currentWord.nextSibling);
+	const restart = document.getElementById("restart");
 
 	if (!window.timer && isLetter) {
 		window.timer = setInterval(() => {
@@ -103,6 +106,8 @@ document.getElementById("game").addEventListener("keyup", (event) => {
 			const sPassed = Math.round(msPassed / 1000);
 			const sRemain = gameTime / 1000 - sPassed;
 			if (sRemain <= 0) {
+				removeClass(restart, "hidden");
+				addClass(restart, "show");
 				gameOver();
 				return;
 			}
