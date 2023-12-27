@@ -393,6 +393,20 @@ toJava.addEventListener("click", () => {
 	newGame(javaCode, 0);
 });
 
+toDart.addEventListener("click", () => {
+	removeClass(toJs, "active");
+	removeClass(toJava, "active");
+	removeClass(toPython, "active");
+	removeClass(toCSharp, "active");
+	removeClass(toCPlus, "active");
+	removeClass(toC, "active");
+	addClass(toDart, "active");
+
+	clearInterval(timer);
+	gameOver();
+	newGame(dartCode, 0);
+});
+
 document.getElementById("newGameBtn").addEventListener("click", () => {
 	clearInterval(timer);
 	gameOver();
