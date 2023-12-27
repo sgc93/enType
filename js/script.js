@@ -336,6 +336,16 @@ easyLevel.addEventListener("click", () => {
 	newGame(easyEng, 0);
 });
 
+medLevel.addEventListener("click", () => {
+	removeClass(hardLevel, "active");
+	removeClass(easyLevel, "active");
+	addClass(medLevel, "active");
+
+	clearInterval(timer);
+	gameOver();
+	newGame(midEng, 0);
+});
+
 hardLevel.addEventListener("click", () => {
 	removeClass(medLevel, "active");
 	removeClass(easyLevel, "active");
