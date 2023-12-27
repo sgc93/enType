@@ -379,6 +379,20 @@ toPython.addEventListener("click", () => {
 	newGame(pythonCode, 0);
 });
 
+toJava.addEventListener("click", () => {
+	removeClass(toJs, "active");
+	removeClass(toPython, "active");
+	removeClass(toDart, "active");
+	removeClass(toCSharp, "active");
+	removeClass(toCPlus, "active");
+	removeClass(toC, "active");
+	addClass(toJava, "active");
+
+	clearInterval(timer);
+	gameOver();
+	newGame(javaCode, 0);
+});
+
 document.getElementById("newGameBtn").addEventListener("click", () => {
 	clearInterval(timer);
 	gameOver();
