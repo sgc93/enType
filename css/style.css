@@ -47,7 +47,7 @@ body {
 	border: none;
 	outline: none;
 	border-radius: 8px;
-	color: var(--color-text-secondary);
+	color: var(--color-text-primary);
 	padding: 5px 10px;
 	cursor: pointer;
 }
@@ -80,7 +80,8 @@ div.word {
 	color: var(--color-text-secondary);
 }
 
-.app__gamePage-gameArea_focus {
+.app__gamePage-gameArea_focus,
+#restart {
 	position: absolute;
 	inset: 0;
 	text-align: center;
@@ -155,4 +156,12 @@ div.word {
 
 #game.over .app__gamePage-gameArea_focus {
 	display: none;
+}
+
+.hidden {
+	display: none;
+}
+
+.show {
+	display: block;
 }
