@@ -9,13 +9,11 @@ const hardEng =
 	);
 
 const javaCode =
-	`import java.util.Scanner; public class Calculator { public static void main(String[] args) { Scanner scanner = new Scanner(System.in); // Accepting the first number System.out.print("Enter the first number: "); double number1 = scanner.nextDouble( // Accepting the second number System.out.print("Enter the second number: "); double number2 = scanner.nextDouble( // Calculating and printing the sum double sum = number1 + number2; System.out.println("Sum: " + sum // Calculating and printing the difference double difference = number1 - number2; System.out.println("Difference: " + difference // Checking if division by zero is possible if (number2 != 0) { // Calculating and printing the division double division = number1 / number2; System.out.println("Division: " + division); } else { System.out.println("Cannot divide by zero."); // Calculating and printing the product double product = number1 * number2; System.out.println("Product: " + product // Closing the scanner scanner.close() }`.split(
+	`import java. util. Scanner; public class { static void main ( String [] args ) scanner = new (System .in); // System .out .print ("Enter the first number: "); double number1 = scanner.nextDouble( // Accepting the second number System.out.print("Enter the second number: "); double number2 = scanner.nextDouble( // Calculating and printing the sum double sum = number1 + number2; System.out.println("Sum: " + sum // Calculating and printing the difference double difference = number1 - number2; System.out.println("Difference: " + difference // Checking if division by zero is possible if (number2 != 0) { // Calculating and printing the division double division = number1 / number2; System.out.println("Division: " + division); } else { System.out.println("Cannot divide by zero."); // Calculating and printing the product double product = number1 * number2; System.out.println("Product: " + product // Closing the scanner scanner.close() }`.split(
 		" "
 	);
 
-const dartCode = `import 'dart:io';
-
-void main() {
+const dartCode = `import 'dart:io'; void main() {
   // Accepting the first number
   stdout.write('Enter the first number: ');
   double number1 = double.parse(stdin.readLineSync()!);
