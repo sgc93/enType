@@ -75,7 +75,7 @@ const getWPM = () => {
 const gameOver = () => {
 	clearInterval(window.timer);
 	addClass(document.getElementById("game"), "over");
-	document.getElementById("timer").innerHTML = getWPM() + "";
+	document.getElementById("timer").innerHTML = getWPM() + " WPM";
 };
 
 // handle typing correctness
@@ -180,19 +180,33 @@ document.getElementById("game").addEventListener("keyup", (event) => {
 		}
 	}
 
+	// handle line moves
+	// if (currentWord.getBoundingClientRect().top > 290) {
+	// 	const words = document.getElementById("words");
+	// 	const marginTop = parseInt(words.style.marginTop || "0px");
+	// 	words.style.marginTop = marginTop - 35 + "px";
+	// }
+
 	// handle cursor movement
 	const nextLetter = document.querySelector(".letter.current");
 	const nextWord = document.querySelector(".word.current");
 	const cursor = document.getElementById("cursor");
+	if (nextLetter) {
+		cursor.style.top = nextLetter.getBoundingClientRect().top + 5 + "px";
+		cursor.style.left = nextLetter.getBoundingClientRect().left + "px";
+	} else {
+		cursor.style.top = nextWord.getBoundingClientRect().top + "px";
+		cursor.style.left = nextWord.getBoundingClientRect().right + "px";
+	}
 
-	cursor.style.top =
-		(nextLetter || nextWord).getBoundingClientRect().top + nextLetter
-			? 4
-			: 8 + "px";
-	cursor.style.left =
-		(nextLetter || nextWord).getBoundingClientRect()[
-			nextLetter ? "left" : "right"
-		] + "px";
+	// cursor.style.top =
+	// 	(nextLetter || nextWord).getBoundingClientRect().top + nextLetter
+	// 		? 4
+	// 		: 8 + "px";
+	// cursor.style.left =
+	// 	(nextLetter || nextWord).getBoundingClientRect()[
+	// 		nextLetter ? "left" : "right"
+	// 	] + "px";
 });
 
 document.getElementById("newGameBtn").addEventListener("click", () => {
