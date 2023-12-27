@@ -62,13 +62,9 @@ body {
 
 .app__gamePage-gameArea_words {
 	line-height: 30px;
-	max-height: 300px;
-	overflow: auto;
+	max-height: 150px;
+	overflow: hidden;
 	filter: blur(3px);
-}
-
-.app__gamePage-gameArea_words::-webkit-scrollbar {
-	display: none;
 }
 
 div.word {
