@@ -37,6 +37,7 @@ const newGame = () => {
 	document.getElementById("words").innerHTML = ""; // clearing
 	document.getElementById("cursor").style.left = 390 + "px";
 	document.getElementById("cursor").style.top = 285 + "px";
+	document.getElementById("words").style.marginTop = "0px";
 	removeClass(restart, "show");
 	addClass(restart, "hidden");
 	window.startTime = null;
