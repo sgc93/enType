@@ -3,6 +3,7 @@
 :root {
 	--color-bg: #333;
 	--color-primary: #fd4;
+	--color-primary2: #e2b714;
 	--color-error: #f55;
 	--color-text-primary: #fff;
 	--color-text-secondary: #666;
@@ -22,6 +23,48 @@ body {
 	color: var(--color-primary);
 }
 
+.header {
+	display: flex;
+	align-items: center;
+}
+
+.header .logo {
+	display: flex;
+	align-items: center;
+
+	padding: 0rem 3rem;
+}
+
+.header .logo img {
+	width: 100px;
+}
+
+.logo h1 {
+	padding: 0.5rem;
+}
+
+.header .links {
+	display: flex;
+}
+
+.links ul {
+	list-style: none;
+}
+
+.links li a {
+	text-decoration: none;
+	color: var(--color-primary2);
+	transition: 0.4s;
+}
+
+.links li a:hover {
+	color: var(--color-primary);
+}
+
+.type-btns {
+	padding: 1rem;
+}
+
 .app__gamePage {
 	height: 100vh;
 	width: 100vw;
@@ -37,19 +80,42 @@ body {
 
 	padding: 8rem 8rem 2rem;
 }
+/* setting */
 
-#newBtn {
-	text-align: right;
+.settings {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
-#newBtn button {
-	background: rgba(255, 255, 255, 0.2);
+.btn {
+	background: var(--color-text-secondary);
 	border: none;
 	outline: none;
 	border-radius: 8px;
-	color: var(--color-text-primary);
+	color: var(--color-primary2);
+	font-weight: 600;
 	padding: 5px 10px;
+	margin: 0.5rem;
 	cursor: pointer;
+	transition: 0.3s;
+}
+
+.active,
+.btn:hover {
+	background-color: var(--color-primary2);
+	color: var(--color-text-secondary);
+}
+
+.spacer {
+	width: 0.5px;
+	height: 20px;
+	background-color: rgba(255, 255, 255, 0.27);
+	margin-right: 0.25rem;
+}
+
+#newBtn {
+	text-align: right;
 }
 
 /* typing area */
