@@ -3,8 +3,6 @@ const toProgramming = document.getElementById("programming");
 const languages = document.getElementById("languages");
 const levels = document.getElementById("level");
 
-const words = easyEng;
-const wordsCount = words.length;
 const gameTime = 30 * 1000;
 window.timer = null;
 window.startTime = null;
@@ -20,7 +18,7 @@ const removeClass = function (element, className) {
 };
 
 // get random word from the words' array
-const getRandomWord = () => {
+const getRandomWord = (wordsCount) => {
 	const randomIndex = Math.ceil(Math.random() * wordsCount);
 	return words[randomIndex - 1];
 };
@@ -28,13 +26,17 @@ const getRandomWord = () => {
 // format a random word
 
 const formatWord = (word) =>
-	`<div class="word"><span class="letter">${word
-		.split("")
-		.join('</span><span class="letter">')}</span></div>`;
+	word
+		? `<div class="word"><span class="letter">${word
+				.split("")
+				.join('</span><span class="letter">')}</span></div>`
+		: "";
 
 // initiate game
 
-const newGame = () => {
+let words = easyEng;
+let wordsCount = words.length;
+const newGame = (type) => {
 	document.getElementById("words").innerHTML = ""; // clearing
 	document.getElementById("cursor").style.left = 390 + "px";
 	document.getElementById("cursor").style.top = 383 + "px";
@@ -44,12 +46,19 @@ const newGame = () => {
 	window.startTime = null;
 	window.endTime = null;
 	window.timer = null;
+
+	if (type) {
+		words = type;
+		console.log(words);
+	}
 	if (document.querySelector("#game.over")) {
 		document.querySelector("#game.over").classList.remove("over");
 	}
 
 	for (var i = 0; i < 200; i++) {
-		document.getElementById("words").innerHTML += formatWord(getRandomWord());
+		document.getElementById("words").innerHTML += formatWord(
+			getRandomWord(wordsCount)
+		);
 	}
 	document.getElementById("timer").innerHTML = gameTime / 1000 + "";
 	addClass(document.querySelector(".word"), "current");
@@ -238,6 +247,10 @@ toProgramming.addEventListener("click", () => {
 	addClass(languages, "show");
 	removeClass(levels, "show");
 	addClass(levels, "hidden");
+
+	clearInterval(timer);
+	gameOver();
+	newGame(javaCode);
 });
 
 toEnglish.addEventListener("click", () => {
@@ -247,6 +260,10 @@ toEnglish.addEventListener("click", () => {
 	addClass(levels, "show");
 	removeClass(languages, "show");
 	addClass(languages, "hidden");
+
+	clearInterval(timer);
+	gameOver();
+	newGame(easyEng);
 });
 
 document.getElementById("newGameBtn").addEventListener("click", () => {
