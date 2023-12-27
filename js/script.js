@@ -1,3 +1,8 @@
+const toEnglish = document.getElementById("english");
+const toProgramming = document.getElementById("programming");
+const languages = document.getElementById("languages");
+const levels = document.getElementById("level");
+
 const words = easyEng;
 const wordsCount = words.length;
 const gameTime = 30 * 1000;
@@ -6,7 +11,6 @@ window.startTime = null;
 window.endTime = null;
 
 // class adder and remover
-
 const addClass = function (element, className) {
 	element.className += " " + className;
 };
@@ -225,6 +229,24 @@ document.addEventListener("keyup", (e) => {
 		gameOver();
 		newGame();
 	}
+});
+
+toProgramming.addEventListener("click", () => {
+	removeClass(toEnglish, "active");
+	addClass(toProgramming, "active");
+	removeClass(languages, "hidden");
+	addClass(languages, "show");
+	removeClass(levels, "show");
+	addClass(levels, "hidden");
+});
+
+toEnglish.addEventListener("click", () => {
+	removeClass(toProgramming, "active");
+	addClass(toEnglish, "active");
+	removeClass(levels, "hidden");
+	addClass(levels, "show");
+	removeClass(languages, "show");
+	addClass(languages, "hidden");
 });
 
 document.getElementById("newGameBtn").addEventListener("click", () => {
