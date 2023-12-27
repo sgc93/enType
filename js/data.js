@@ -9,7 +9,7 @@ const midEng =
 	);
 
 const hardEng =
-	'@Tiger#42Roar! The encrypted message reads: 5$ecureP@ssword! Unlock the vault with code 12345. Beware of the darkness that lurks in the shadows. A=πr²: calculate the area of the circle. The quick brown fox jumps over the 1azy dog! "To be or not to be," a famous Shakespearean dilemma. 3.14159265359, the never-ending dance of pi. The cyborg revolution begins on 01/20/3035. @QuantumPhysics: E=mc², unraveling the mysteries of the cosmos. Can you solve the riddle: What has keys but can\'t open locks?'.split(
+	'@Tiger#42Roar! The encrypted message reads: 5$ecureP@ssword! Unlock the vault with code 12345. Beware of the darkness that lurks in the shadows. A=PI*r^2: calculate the area of the circle. The quick brown fox jumps over the 1azy dog! "To be or not to be," a famous Shakespearean dilemma. 3.14159265359, the never-ending dance of pi. The cyborg revolution begins on 01/20/3035. @QuantumPhysics: E=mc^2, unraveling the mysteries of the cosmos. Can you solve the riddle: What has keys but can\'t open locks?'.split(
 		" "
 	);
 const jsCode =
