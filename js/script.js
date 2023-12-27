@@ -336,6 +336,16 @@ easyLevel.addEventListener("click", () => {
 	newGame(easyEng, 0);
 });
 
+hardLevel.addEventListener("click", () => {
+	removeClass(medLevel, "active");
+	removeClass(easyLevel, "active");
+	addClass(hardLevel, "active");
+
+	clearInterval(timer);
+	gameOver();
+	newGame(hardEng, 0);
+});
+
 document.getElementById("newGameBtn").addEventListener("click", () => {
 	clearInterval(timer);
 	gameOver();
