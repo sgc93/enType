@@ -2,6 +2,9 @@ const toEnglish = document.getElementById("english");
 const toProgramming = document.getElementById("programming");
 const languages = document.getElementById("languages");
 const levels = document.getElementById("level");
+const easyLevel = document.getElementById("easy");
+const medLevel = document.getElementById("medium");
+const hardLevel = document.getElementById("difficult");
 const time15 = document.getElementById("time15");
 const time30 = document.getElementById("time30");
 const time60 = document.getElementById("time60");
@@ -320,6 +323,17 @@ time120.addEventListener("click", () => {
 	clearInterval(timer);
 	gameOver();
 	newGame("", 120);
+});
+
+// handle levels
+easyLevel.addEventListener("click", () => {
+	removeClass(medLevel, "active");
+	removeClass(hardLevel, "active");
+	addClass(easyLevel, "active");
+
+	clearInterval(timer);
+	gameOver();
+	newGame(easyEng, 0);
 });
 
 document.getElementById("newGameBtn").addEventListener("click", () => {
