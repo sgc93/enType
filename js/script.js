@@ -2,15 +2,18 @@ const toEnglish = document.getElementById("english");
 const toProgramming = document.getElementById("programming");
 const languages = document.getElementById("languages");
 const levels = document.getElementById("level");
+const time15 = document.getElementById("time15");
+const time30 = document.getElementById("time30");
+const time60 = document.getElementById("time60");
+const time120 = document.getElementById("time120");
 
-const gameTime = 30 * 1000;
 window.timer = null;
 window.startTime = null;
 window.endTime = null;
 
 // class adder and remover
 const addClass = function (element, className) {
-	element.className += " " + className;
+	if (element) element.className += " " + className;
 };
 
 const removeClass = function (element, className) {
@@ -36,7 +39,8 @@ const formatWord = (word) =>
 
 let words = easyEng;
 let wordsCount = words.length;
-const newGame = (type) => {
+let gameTime = 30 * 1000;
+const newGame = (type, dur) => {
 	document.getElementById("words").innerHTML = ""; // clearing
 	document.getElementById("cursor").style.left = 390 + "px";
 	document.getElementById("cursor").style.top = 383 + "px";
@@ -49,8 +53,12 @@ const newGame = (type) => {
 
 	if (type) {
 		words = type;
-		console.log(words);
 	}
+	if (dur) {
+		gameTime = dur * 1000;
+		console.log(gameTime / 1000);
+	}
+
 	if (document.querySelector("#game.over")) {
 		document.querySelector("#game.over").classList.remove("over");
 	}
@@ -240,6 +248,8 @@ document.addEventListener("keyup", (e) => {
 	}
 });
 
+// handle switching between English and Programming
+
 toProgramming.addEventListener("click", () => {
 	removeClass(toEnglish, "active");
 	addClass(toProgramming, "active");
@@ -264,6 +274,19 @@ toEnglish.addEventListener("click", () => {
 	clearInterval(timer);
 	gameOver();
 	newGame(easyEng);
+});
+
+// handle switching between durations
+
+time15.addEventListener("click", () => {
+	removeClass(time30, "active");
+	removeClass(time60, "active");
+	removeClass(time120, "active");
+	addClass(time15, "active");
+
+	clearInterval(timer);
+	gameOver();
+	newGame("", 15);
 });
 
 document.getElementById("newGameBtn").addEventListener("click", () => {
