@@ -181,12 +181,13 @@ document.getElementById("game").addEventListener("keyup", (event) => {
 		}
 	}
 
+	console.log(currentWord.getBoundingClientRect().top);
 	// handle line moves
-	// if (currentWord.getBoundingClientRect().top > 290) {
-	// 	const words = document.getElementById("words");
-	// 	const marginTop = parseInt(words.style.marginTop || "0px");
-	// 	words.style.marginTop = marginTop - 35 + "px";
-	// }
+	if (currentWord.getBoundingClientRect().top > 363) {
+		const words = document.getElementById("words");
+		const margin = parseInt(words.style.marginTop || "0px");
+		words.style.marginTop = margin - 35 + "px";
+	}
 
 	// handle cursor movement
 	const nextLetter = document.querySelector(".letter.current");
