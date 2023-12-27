@@ -17,6 +17,9 @@ const toCSharp = document.getElementById("cSharp");
 const toCPlus = document.getElementById("cPlusPlus");
 const toC = document.getElementById("c");
 
+const resultBox = document.getElementById("result");
+const wpm = document.getElementById("wpm");
+
 window.timer = null;
 window.startTime = null;
 window.endTime = null;
@@ -51,6 +54,8 @@ let words = easyEng;
 let wordsCount = words.length;
 let gameTime = 30 * 1000;
 const newGame = (type, dur) => {
+	removeClass(resultBox, "app_result");
+	addClass(resultBox, "hidden");
 	document.getElementById("words").innerHTML = ""; // clearing
 	document.getElementById("cursor").style.left = 390 + "px";
 	document.getElementById("cursor").style.top = 383 + "px";
@@ -137,6 +142,8 @@ document.getElementById("game").addEventListener("keyup", (event) => {
 			if (sRemain <= 0) {
 				removeClass(restart, "hidden");
 				addClass(restart, "show");
+				removeClass(resultBox, "hidden");
+				addClass(resultBox, "app_result");
 				gameOver();
 				return;
 			}
