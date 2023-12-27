@@ -35,7 +35,7 @@ const formatWord = (word) =>
 
 const newGame = () => {
 	document.getElementById("words").innerHTML = ""; // clearing
-	document.getElementById("cursor").style.left = 226 + "px";
+	document.getElementById("cursor").style.left = 390 + "px";
 	document.getElementById("cursor").style.top = 285 + "px";
 	window.startTime = null;
 	window.endTime = null;
