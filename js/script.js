@@ -421,6 +421,20 @@ toCSharp.addEventListener("click", () => {
 	newGame(cSharp, 0);
 });
 
+toCPlus.addEventListener("click", () => {
+	removeClass(toJs, "active");
+	removeClass(toJava, "active");
+	removeClass(toPython, "active");
+	removeClass(toDart, "active");
+	removeClass(toCSharp, "active");
+	removeClass(toC, "active");
+	addClass(toCPlus, "active");
+
+	clearInterval(timer);
+	gameOver();
+	newGame(cPlusCode, 0);
+});
+
 document.getElementById("newGameBtn").addEventListener("click", () => {
 	clearInterval(timer);
 	gameOver();
