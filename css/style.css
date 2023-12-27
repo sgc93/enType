@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono&display=swap");
+
 :root {
 	--color-bg: #333;
 	--color-primary: #fd4;
@@ -55,15 +57,15 @@ body {
 .app__gamePage-gameArea {
 	position: relative;
 	padding-inline: 9rem;
+	line-height: 35px;
+	max-height: 115px;
+	overflow: hidden;
 }
 .app__gamePage-gameArea:focus {
 	outline: none;
 }
 
 .app__gamePage-gameArea_words {
-	line-height: 30px;
-	max-height: 150px;
-	overflow: hidden;
 	filter: blur(3px);
 }
 
