@@ -23,6 +23,15 @@ body {
 	color: var(--color-primary);
 }
 
+.app__gamePage {
+	height: 100vh;
+	width: 100vw;
+	padding: 4rem 5rem;
+
+	display: flex;
+	flex-direction: column;
+}
+
 .header {
 	display: flex;
 	align-items: center;
@@ -63,15 +72,6 @@ body {
 
 .type-btns {
 	padding: 1rem;
-}
-
-.app__gamePage {
-	height: 100vh;
-	width: 100vw;
-	padding: 4rem 5rem;
-
-	display: flex;
-	flex-direction: column;
 }
 
 .app__gamePage-info {
@@ -187,10 +187,10 @@ div.word {
 .app__gamePage-gameArea_cursor {
 	display: none;
 	position: fixed;
-	top: 285px;
+	top: 380px;
 	left: 390px;
-	width: 0.7px;
-	height: 1.5rem;
+	width: 0.9px;
+	height: 1.8rem;
 	background-color: var(--color-primary);
 
 	animation: blink-cursor 0.7s infinite;
@@ -230,4 +230,25 @@ div.word {
 
 .show {
 	display: block;
+}
+
+.footer {
+	align-self: center;
+}
+
+.footer ul {
+	list-style: none;
+	align-items: center;
+	display: flex;
+}
+
+.footer li a {
+	text-decoration: none;
+	color: var(--color-primary2);
+	padding: 1rem;
+	transition: 0.4s;
+}
+
+.footer li a:hover {
+	color: var(--color-primary);
 }
