@@ -62,9 +62,13 @@ body {
 
 .app__gamePage-gameArea_words {
 	line-height: 30px;
-	height: 90px;
-	overflow: hidden;
+	max-height: 300px;
+	overflow: auto;
 	filter: blur(3px);
+}
+
+.app__gamePage-gameArea_words::-webkit-scrollbar {
+	display: none;
 }
 
 div.word {
@@ -92,6 +96,10 @@ div.word {
 	display: none;
 }
 
+.letter {
+	font-size: 2rem;
+}
+
 .letter.correct {
 	color: var(--color-text-primary);
 }
@@ -110,13 +118,13 @@ div.word {
 .app__gamePage-gameArea_cursor {
 	display: none;
 	position: fixed;
-	top: 292px;
+	top: 285px;
 	left: 226px;
-	width: 0.5px;
-	height: 13px;
+	width: 0.7px;
+	height: 1.5rem;
 	background-color: var(--color-primary);
 
-	animation: blink-cursor 0.3s infinite;
+	animation: blink-cursor 0.7s infinite;
 }
 
 @keyframes blink-cursor {
@@ -124,7 +132,7 @@ div.word {
 		opacity: 1;
 	}
 	50% {
-		opacity: 0;
+		opacity: 0.2;
 	}
 	100% {
 		opacity: 1;
