@@ -9,6 +9,13 @@ const time15 = document.getElementById("time15");
 const time30 = document.getElementById("time30");
 const time60 = document.getElementById("time60");
 const time120 = document.getElementById("time120");
+const toJs = document.getElementById("js");
+const toPython = document.getElementById("python");
+const toJava = document.getElementById("java");
+const toDart = document.getElementById("dart");
+const toCSharp = document.getElementById("cSharp");
+const toCPlus = document.getElementById("cPlusPlus");
+const toC = document.getElementById("c");
 
 window.timer = null;
 window.startTime = null;
@@ -357,6 +364,20 @@ hardLevel.addEventListener("click", () => {
 });
 
 // handle language switching
+
+toPython.addEventListener("click", () => {
+	removeClass(toJs, "active");
+	removeClass(toJava, "active");
+	removeClass(toDart, "active");
+	removeClass(toCSharp, "active");
+	removeClass(toCPlus, "active");
+	removeClass(toC, "active");
+	addClass(toPython, "active");
+
+	clearInterval(timer);
+	gameOver();
+	newGame(pythonCode, 0);
+});
 
 document.getElementById("newGameBtn").addEventListener("click", () => {
 	clearInterval(timer);
