@@ -14,9 +14,8 @@ const hardEng =
 	);
 
 const javaCode =
-	`import java. util. Scanner; public class { static void main ( String [] args ) scanner = new (System .in); // System .out .print ("Enter the first number: "); double number1 = scanner.nextDouble( // Accepting the second number System.out.print("Enter the second number: "); double number2 = scanner.nextDouble( // Calculating and printing the sum double sum = number1 + number2; System.out.println("Sum: " + sum // Calculating and printing the difference double difference = number1 - number2; System.out.println("Difference: " + difference // Checking if division by zero is possible if (number2 != 0) { // Calculating and printing the division double division = number1 / number2; System.out.println("Division: " + division); } else { System.out.println("Cannot divide by zero."); // Calculating and printing the product double product = number1 * number2; System.out.println("Product: " + product // Closing the scanner scanner.close() }`.split(
-		" "
-	);
+	`abstract assert boolean break byte case catch char class const continue default do // double else enum extends final finally float for if goto implements import instanceof int interface long native new package private protected public return short static strictfp super switch synchronized this throw . /**/ throws transient try void volatile while String arrays ArrayList LinkedList HashMap HashSet TreeMap TreeSet Calendar Date NumberFormat Random Math StringBuffer StringBuilder FileReader {} FileWriter PrintWriter Scanner BufferedReader BufferedWriter Socket ServerSocket SocketException IOException URL URI URISyntaxException MalformedURLException URLConnection HttpURLConnection InputStream OutputStream FileInputStream [] FileOutputStream ObjectInputStream ObjectOutputStream DataInputStream DataOutputStream Reader Writer PrintStream System out err in getProperty ;
+`.split(" ");
 
 const dartCode = `import 'dart:io'; void main() {
   // Accepting the first number
