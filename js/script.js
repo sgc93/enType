@@ -263,7 +263,7 @@ toProgramming.addEventListener("click", () => {
 
 	clearInterval(timer);
 	gameOver();
-	newGame(javaCode);
+	newGame(jsCode);
 });
 
 toEnglish.addEventListener("click", () => {
@@ -355,6 +355,8 @@ hardLevel.addEventListener("click", () => {
 	gameOver();
 	newGame(hardEng, 0);
 });
+
+// handle language switching
 
 document.getElementById("newGameBtn").addEventListener("click", () => {
 	clearInterval(timer);
