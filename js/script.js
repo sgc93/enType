@@ -33,7 +33,7 @@ const formatWord = (word) =>
 const newGame = () => {
 	document.getElementById("words").innerHTML = ""; // clearing
 	document.getElementById("cursor").style.left = 390 + "px";
-	document.getElementById("cursor").style.top = 285 + "px";
+	document.getElementById("cursor").style.top = 383 + "px";
 	document.getElementById("words").style.marginTop = "0px";
 	removeClass(restart, "show");
 	addClass(restart, "hidden");
@@ -185,7 +185,8 @@ document.getElementById("game").addEventListener("keyup", (event) => {
 	}
 
 	// handle line moves
-	if (currentWord.getBoundingClientRect().top > 330) {
+	console.log(currentWord.getBoundingClientRect().top);
+	if (currentWord.getBoundingClientRect().top > 450) {
 		const words = document.getElementById("words");
 		const margin = parseInt(words.style.marginTop || "0px");
 		words.style.marginTop = margin - 35 + "px";
@@ -196,7 +197,7 @@ document.getElementById("game").addEventListener("keyup", (event) => {
 	const nextWord = document.querySelector(".word.current");
 	const cursor = document.getElementById("cursor");
 	if (nextLetter) {
-		cursor.style.top = nextLetter.getBoundingClientRect().top + 5 + "px";
+		cursor.style.top = nextLetter.getBoundingClientRect().top + "px";
 		cursor.style.left = nextLetter.getBoundingClientRect().left + "px";
 	} else {
 		cursor.style.top = nextWord.getBoundingClientRect().top + "px";
