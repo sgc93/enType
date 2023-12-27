@@ -289,6 +289,39 @@ time15.addEventListener("click", () => {
 	newGame("", 15);
 });
 
+time30.addEventListener("click", () => {
+	removeClass(time15, "active");
+	removeClass(time60, "active");
+	removeClass(time120, "active");
+	addClass(time30, "active");
+
+	clearInterval(timer);
+	gameOver();
+	newGame("", 30);
+});
+
+time60.addEventListener("click", () => {
+	removeClass(time30, "active");
+	removeClass(time15, "active");
+	removeClass(time120, "active");
+	addClass(time60, "active");
+
+	clearInterval(timer);
+	gameOver();
+	newGame("", 60);
+});
+
+time120.addEventListener("click", () => {
+	removeClass(time30, "active");
+	removeClass(time60, "active");
+	removeClass(time15, "active");
+	addClass(time120, "active");
+
+	clearInterval(timer);
+	gameOver();
+	newGame("", 120);
+});
+
 document.getElementById("newGameBtn").addEventListener("click", () => {
 	clearInterval(timer);
 	gameOver();
