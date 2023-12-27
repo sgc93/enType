@@ -186,7 +186,6 @@ document.getElementById("game").addEventListener("keyup", (event) => {
 		}
 	}
 
-	console.log(currentWord.getBoundingClientRect().top);
 	// handle line moves
 	if (currentWord.getBoundingClientRect().top > 330) {
 		const words = document.getElementById("words");
@@ -214,6 +213,19 @@ document.getElementById("game").addEventListener("keyup", (event) => {
 	// 	(nextLetter || nextWord).getBoundingClientRect()[
 	// 		nextLetter ? "left" : "right"
 	// 	] + "px";
+});
+
+// handling restarting the game with pressing Enter key
+
+document.addEventListener("keyup", (e) => {
+	const key = e.key;
+	const isEnter = key === "Enter";
+	console.log(key);
+	if (isEnter) {
+		clearInterval(timer);
+		gameOver();
+		newGame();
+	}
 });
 
 document.getElementById("newGameBtn").addEventListener("click", () => {
