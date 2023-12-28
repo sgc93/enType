@@ -277,3 +277,59 @@ div.word {
 #wpm {
 	font-size: 40px;
 }
+
+/* about page */
+
+.app__aboutPage {
+	align-self: center;
+	position: absolute;
+	height: 85vh;
+	width: 70vw;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1rem;
+	padding: 2rem;
+	border: 1px solid var(--color-primary2);
+	border-radius: 1.2rem;
+
+	background-color: var(--color-btn-bg);
+	backdrop-filter: blur(25px);
+
+	overflow: auto;
+}
+
+.app__aboutPage::-webkit-scrollbar {
+	background: transparent;
+	width: 12px;
+}
+
+.app__aboutPage::-webkit-scrollbar-thumb {
+	margin-right: 1rem;
+	background: var(--color-text-secondary);
+	border-radius: 3rem;
+}
+
+.about-header {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	gap: 2rem;
+}
+
+.about-header img {
+	width: 70%;
+}
+
+.about-detail {
+	display: flex;
+	flex-direction: column;
+}
+
+.detail_part {
+	display: flex;
+	flex-direction: column;
+	padding-top: 2rem;
+}
