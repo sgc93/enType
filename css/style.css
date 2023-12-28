@@ -25,6 +25,14 @@ body {
 	color: var(--color-primary);
 }
 
+.app {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
 .app__gamePage {
 	position: relative;
 	height: 100vh;
