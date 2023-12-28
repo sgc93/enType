@@ -262,7 +262,15 @@ div.word {
 
 .footer {
 	margin-top: 15rem;
-	align-self: center;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.shortcuts {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
 }
 
 .footer ul {
