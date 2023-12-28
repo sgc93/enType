@@ -113,6 +113,7 @@ const gameOver = () => {
 	clearInterval(window.timer);
 	addClass(document.getElementById("game"), "over");
 	document.getElementById("timer").innerHTML = getWPM() + " WPM";
+	wpm.innerHTML = getWPM() + "";
 };
 
 // handle typing correctness
