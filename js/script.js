@@ -476,6 +476,12 @@ window.addEventListener("keyup", (event) => {
 	}
 });
 
+gamePage.addEventListener("click", () => {
+	removeClass(gamePage, "blur");
+	removeClass(aboutPage, "app__aboutPage");
+	addClass(aboutPage, "hidden");
+});
+
 document.getElementById("newGameBtn").addEventListener("click", () => {
 	clearInterval(timer);
 	gameOver();
