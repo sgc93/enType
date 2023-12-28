@@ -64,20 +64,38 @@ body {
 
 .header .links {
 	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 1rem;
 }
 
-.links ul {
-	list-style: none;
+.btn_icon {
+	border: none;
+	outline: none;
+	background: none;
+	cursor: pointer;
 }
 
-.links li a {
-	text-decoration: none;
-	color: var(--color-primary2);
-	transition: 0.4s;
+.btn_icon svg {
+	width: 20px;
+	height: 20px;
+	transition: 0.3s;
 }
 
-.links li a:hover {
-	color: var(--color-primary);
+.btn_icon:first-child {
+	fill: var(--color-error);
+}
+
+.btn_icon:nth-child(2) {
+	fill: var(--color-primary2);
+}
+
+.btn_icon:last-child {
+	fill: var(--color-text-primary);
+}
+
+.btn_icon:hover svg {
+	fill: var(--color-primary);
 }
 
 .type-btns {
