@@ -20,6 +20,8 @@ const toC = document.getElementById("c");
 const resultBox = document.getElementById("result");
 const wpm = document.getElementById("wpm");
 
+const aboutPage = document.getElementById("about");
+
 window.timer = null;
 window.startTime = null;
 window.endTime = null;
@@ -455,6 +457,20 @@ toC.addEventListener("click", () => {
 	clearInterval(timer);
 	gameOver();
 	newGame(cCode, 0);
+});
+
+// handle about modal window hiding and showing
+window.addEventListener("keyup", (event) => {
+	console.log(event.key);
+	if (event.key === "Escape") {
+		if (aboutPage.classList.contains("hidden")) {
+			removeClass(aboutPage, "hidden");
+			addClass(aboutPage, "app__aboutPage");
+		} else if (aboutPage.classList.contains("app__aboutPage")) {
+			removeClass(aboutPage, "app__aboutPage");
+			addClass(aboutPage, "hidden");
+		}
+	}
 });
 
 document.getElementById("newGameBtn").addEventListener("click", () => {
