@@ -306,6 +306,7 @@ div.word {
 	backdrop-filter: blur(25px);
 
 	overflow: auto;
+	z-index: 555;
 }
 
 .app__aboutPage::-webkit-scrollbar {
@@ -372,4 +373,9 @@ div.word {
 	75% {
 		filter: hue-rotate(360deg);
 	}
+}
+
+/* background blur while displaying modal windows */
+.blur {
+	filter: blur(5px);
 }
