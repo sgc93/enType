@@ -20,6 +20,7 @@ const toC = document.getElementById("c");
 const resultBox = document.getElementById("result");
 const wpm = document.getElementById("wpm");
 
+const gamePage = document.getElementById("gamePage");
 const aboutPage = document.getElementById("about");
 
 window.timer = null;
@@ -464,9 +465,11 @@ window.addEventListener("keyup", (event) => {
 	console.log(event.key);
 	if (event.key === "Escape") {
 		if (aboutPage.classList.contains("hidden")) {
+			addClass(gamePage, "blur");
 			removeClass(aboutPage, "hidden");
 			addClass(aboutPage, "app__aboutPage");
 		} else if (aboutPage.classList.contains("app__aboutPage")) {
+			removeClass(gamePage, "blur");
 			removeClass(aboutPage, "app__aboutPage");
 			addClass(aboutPage, "hidden");
 		}
