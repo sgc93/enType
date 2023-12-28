@@ -333,3 +333,35 @@ div.word {
 	flex-direction: column;
 	padding-top: 2rem;
 }
+
+.detail_part .features {
+	display: flex;
+	padding: 2rem;
+}
+
+.feature:hover {
+	animation: colorChange 3s infinite;
+}
+
+.feature:not(:last-child) {
+	padding-right: 2rem;
+}
+
+.feature img {
+	width: 100%;
+}
+
+@keyframes colorChange {
+	0% {
+		filter: hue-rotate(0deg);
+	}
+	25% {
+		filter: hue-rotate(90deg);
+	}
+	50% {
+		filter: hue-rotate(180deg);
+	}
+	75% {
+		filter: hue-rotate(360deg);
+	}
+}
