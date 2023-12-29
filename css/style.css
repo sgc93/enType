@@ -1,6 +1,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono&display=swap");
 
 :root {
+	--color-bg: #ffffff;
+	--color-btn-bg: #ebebeb;
+	--color-btn-bg2: #2d2076;
+	--color-primary: #2d2076;
+	--color-primary2: #385eca;
+	--color-error: #dd3145;
+	--color-text-primary: black;
+	--color-text-secondary: #5b79cd;
+
+	--font-words: "Roboto Nono", monospace;
+}
+
+.dark_one {
 	--color-bg: #2e1a47;
 	--color-btn-bg: #27173c;
 	--color-btn-bg2: #c18fff;
