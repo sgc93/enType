@@ -120,6 +120,8 @@ const gameOver = () => {
 	wpm.innerHTML = getWPM() + "";
 };
 
+const showAboutModal = () => {};
+
 // handle typing correctness
 document.getElementById("game").addEventListener("keyup", (event) => {
 	const key = event.key;
