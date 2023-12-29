@@ -19,6 +19,8 @@ const toC = document.getElementById("c");
 
 const resultBox = document.getElementById("result");
 const wpm = document.getElementById("wpm");
+const test = document.getElementById("test");
+const testTime = document.getElementById("testTime");
 
 const gamePage = document.getElementById("gamePage");
 const aboutPage = document.getElementById("about");
@@ -62,9 +64,10 @@ const formatWord = (word) =>
 // initiate game
 
 let words = easyEng;
+let testType = "English | easy";
 let wordsCount = words.length;
 let gameTime = 30 * 1000;
-const newGame = (type, dur) => {
+const newGame = (type, lev, dur) => {
 	removeClass(resultBox, "app_result");
 	addClass(resultBox, "hidden");
 	document.getElementById("words").innerHTML = ""; // clearing
@@ -79,10 +82,10 @@ const newGame = (type, dur) => {
 
 	if (type) {
 		words = type;
+		testType = lev;
 	}
 	if (dur) {
 		gameTime = dur * 1000;
-		console.log(gameTime / 1000);
 	}
 
 	if (document.querySelector("#game.over")) {
@@ -125,6 +128,8 @@ const gameOver = () => {
 	addClass(document.getElementById("game"), "over");
 	document.getElementById("timer").innerHTML = getWPM() + " WPM";
 	wpm.innerHTML = getWPM() + "";
+	test.innerHTML = testType;
+	testTime.innerHTML = gameTime / 1000 + " Secs";
 };
 
 const showModal = (element, className) => {
@@ -333,7 +338,7 @@ toProgramming.addEventListener("click", () => {
 
 	clearInterval(timer);
 	gameOver();
-	newGame(jsCode);
+	newGame(jsCode, "Coding | JavaScript");
 });
 
 toEnglish.addEventListener("click", () => {
@@ -346,7 +351,7 @@ toEnglish.addEventListener("click", () => {
 
 	clearInterval(timer);
 	gameOver();
-	newGame(easyEng);
+	newGame(easyEng, "English | easy");
 });
 
 // handle switching between durations
@@ -359,7 +364,7 @@ time15.addEventListener("click", () => {
 
 	clearInterval(timer);
 	gameOver();
-	newGame("", 15);
+	newGame("", " ", 15);
 });
 
 time30.addEventListener("click", () => {
@@ -370,7 +375,7 @@ time30.addEventListener("click", () => {
 
 	clearInterval(timer);
 	gameOver();
-	newGame("", 30);
+	newGame("", " ", 30);
 });
 
 time60.addEventListener("click", () => {
@@ -381,7 +386,7 @@ time60.addEventListener("click", () => {
 
 	clearInterval(timer);
 	gameOver();
-	newGame("", 60);
+	newGame("", " ", 60);
 });
 
 time120.addEventListener("click", () => {
@@ -392,7 +397,7 @@ time120.addEventListener("click", () => {
 
 	clearInterval(timer);
 	gameOver();
-	newGame("", 120);
+	newGame("", " ", 120);
 });
 
 // handle levels
@@ -403,7 +408,7 @@ easyLevel.addEventListener("click", () => {
 
 	clearInterval(timer);
 	gameOver();
-	newGame(easyEng, 0);
+	newGame(easyEng, "English | easy", 0);
 });
 
 medLevel.addEventListener("click", () => {
@@ -413,7 +418,7 @@ medLevel.addEventListener("click", () => {
 
 	clearInterval(timer);
 	gameOver();
-	newGame(midEng, 0);
+	newGame(midEng, "English | medium", 0);
 });
 
 hardLevel.addEventListener("click", () => {
@@ -423,7 +428,7 @@ hardLevel.addEventListener("click", () => {
 
 	clearInterval(timer);
 	gameOver();
-	newGame(hardEng, 0);
+	newGame(hardEng, "English | difficult", 0);
 });
 
 // handle language switching
@@ -439,7 +444,7 @@ toPython.addEventListener("click", () => {
 
 	clearInterval(timer);
 	gameOver();
-	newGame(pythonCode, 0);
+	newGame(pythonCode, "Codding | Python", 0);
 });
 
 toJava.addEventListener("click", () => {
@@ -453,7 +458,7 @@ toJava.addEventListener("click", () => {
 
 	clearInterval(timer);
 	gameOver();
-	newGame(javaCode, 0);
+	newGame(javaCode, "Coding | Java", 0);
 });
 
 toDart.addEventListener("click", () => {
@@ -467,7 +472,7 @@ toDart.addEventListener("click", () => {
 
 	clearInterval(timer);
 	gameOver();
-	newGame(dartCode, 0);
+	newGame(dartCode, "Coding | Dart", 0);
 });
 
 toCSharp.addEventListener("click", () => {
@@ -481,7 +486,7 @@ toCSharp.addEventListener("click", () => {
 
 	clearInterval(timer);
 	gameOver();
-	newGame(cSharp, 0);
+	newGame(cSharp, "Coding | C#", 0);
 });
 
 toCPlus.addEventListener("click", () => {
