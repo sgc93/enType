@@ -355,7 +355,8 @@ div.word {
 	border-radius: 3rem;
 }
 
-.app__aboutPage {
+.app__aboutPage,
+.app__contactPage {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -376,12 +377,14 @@ div.word {
 	height: 2rem;
 }
 
-.about-content {
+.about-content,
+.contact-content {
 	height: 85vh;
 	width: 70vw;
 }
 
-.about-header {
+.about-header,
+.contact-header {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -393,7 +396,8 @@ div.word {
 	width: 70%;
 }
 
-.about-detail {
+.about-detail,
+.contact-detail {
 	display: flex;
 	flex-direction: column;
 }
@@ -434,6 +438,32 @@ div.word {
 	75% {
 		filter: hue-rotate(360deg);
 	}
+}
+
+/* contact form style */
+.contact-detail {
+	gap: 3rem;
+}
+.email-form {
+	display: flex;
+	flex-direction: column;
+}
+
+.email-form input {
+	margin: 7px;
+	outline: none;
+	border: none;
+	background: var(--color-bg);
+	color: var(--color-primary2);
+	font-size: 1.3rem;
+	border-radius: 7px;
+	padding: 0.5rem 1rem;
+	transition: 0.3s;
+}
+
+.email-form input:focus {
+	transform: translateY(-2px);
+	outline: 2px solid var(--color-error);
 }
 
 /* background blur while displaying modal windows */
