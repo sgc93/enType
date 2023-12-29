@@ -23,6 +23,7 @@ const wpm = document.getElementById("wpm");
 const gamePage = document.getElementById("gamePage");
 const aboutPage = document.getElementById("about");
 const aboutBtn = document.getElementById("aboutBtn");
+const closeBtn = document.getElementById("closeBtn");
 
 window.timer = null;
 window.startTime = null;
@@ -507,6 +508,7 @@ window.addEventListener("keyup", (event) => {
 aboutPage.addEventListener("click", () => hideAboutModal());
 
 aboutBtn.addEventListener("click", () => showAboutModal());
+closeBtn.addEventListener("click", () => hideAboutModal());
 
 // handle test restarting
 document.getElementById("newGameBtn").addEventListener("click", () => {
