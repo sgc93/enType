@@ -372,7 +372,23 @@ div.word {
 }
 
 #wpm {
-	font-size: 40px;
+	font-size: 70px;
+}
+
+.app_result span:nth-child(2) {
+	font-size: 30px;
+}
+
+.app_result span:nth-child(3) {
+	color: var(--color-bg);
+	background-color: var(--color-primary);
+	padding: 0.2rem 1rem;
+	margin: 0.2rem 0;
+	border-radius: 0.5rem;
+}
+
+.app_result span:last-child {
+	font-size: 1.3rem;
 }
 
 /* about page */
