@@ -22,6 +22,7 @@ const wpm = document.getElementById("wpm");
 
 const gamePage = document.getElementById("gamePage");
 const aboutPage = document.getElementById("about");
+const aboutBtn = document.getElementById("aboutBtn");
 
 window.timer = null;
 window.startTime = null;
@@ -460,18 +461,27 @@ toC.addEventListener("click", () => {
 	newGame(cCode, 0);
 });
 
+toJs.addEventListener("click", () => {
+	removeClass(toC, "active");
+	removeClass(toJava, "active");
+	removeClass(toPython, "active");
+	removeClass(toDart, "active");
+	removeClass(toCSharp, "active");
+	removeClass(toCPlus, "active");
+	addClass(toJs, "active");
+
+	clearInterval(timer);
+	gameOver();
+	newGame(jsCode, 0);
+});
+
 // handle about modal window hiding and showing
 window.addEventListener("keyup", (event) => {
-	console.log(event.key);
 	if (event.key === "Escape") {
 		if (aboutPage.classList.contains("hidden")) {
 			addClass(gamePage, "blur");
 			removeClass(aboutPage, "hidden");
 			addClass(aboutPage, "app__aboutPage");
-		} else if (aboutPage.classList.contains("app__aboutPage")) {
-			removeClass(gamePage, "blur");
-			removeClass(aboutPage, "app__aboutPage");
-			addClass(aboutPage, "hidden");
 		}
 	}
 });
@@ -482,6 +492,18 @@ gamePage.addEventListener("click", () => {
 	addClass(aboutPage, "hidden");
 });
 
+// handle displaying about page with about btn
+aboutBtn.addEventListener("click", () => {
+	console.log(aboutBtn);
+
+	if (aboutPage.classList.contains("hidden")) {
+		addClass(gamePage, "blur");
+		removeClass(aboutPage, "hidden");
+		addClass(aboutPage, "app__aboutPage");
+	}
+});
+
+// handle test restarting
 document.getElementById("newGameBtn").addEventListener("click", () => {
 	clearInterval(timer);
 	gameOver();
