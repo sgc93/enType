@@ -28,6 +28,8 @@ const contactPage = document.getElementById("contactPage");
 const contactBtn = document.getElementById("contactBtn");
 const closeContact = document.getElementById("closeContactBtn");
 
+const themeBtn = document.getElementById("themeBtn");
+
 window.timer = null;
 window.startTime = null;
 window.endTime = null;
@@ -533,6 +535,22 @@ contactBtn.addEventListener("click", () =>
 closeContact.addEventListener("click", () =>
 	hideModal(contactPage, "app__contactPage")
 );
+
+// handle theme change ( toggling)
+const themeList = ["theme_one", "theme_two", "theme_three", "theme_four"];
+let themeIndex = 0;
+themeBtn.addEventListener("click", () => {
+	themeList.forEach((cl) => {
+		removeClass(document.body, cl);
+	});
+	document.body.classList.add(themeList[themeIndex]);
+	if (themeIndex < 3) {
+		themeIndex += 1;
+	} else {
+		themeIndex = 0;
+	}
+});
+
 // handle test restarting
 document.getElementById("newGameBtn").addEventListener("click", () => {
 	clearInterval(timer);
