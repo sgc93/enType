@@ -120,7 +120,29 @@ const gameOver = () => {
 	wpm.innerHTML = getWPM() + "";
 };
 
-const showAboutModal = () => {};
+const showAboutModal = () => {
+	if (aboutPage.classList.contains("hidden")) {
+		addClass(gamePage, "blur");
+		removeClass(aboutPage, "hidden");
+		addClass(aboutPage, "app__aboutPage");
+	}
+};
+
+const hideAboutModal = () => {
+	if (aboutPage.classList.contains("app__aboutPage")) {
+		removeClass(gamePage, "blur");
+		removeClass(aboutPage, "app__aboutPage");
+		addClass(aboutPage, "hidden");
+	}
+};
+
+const toggleOnAboutMOdal = () => {
+	if (aboutPage.classList.contains("hidden")) {
+		showAboutModal();
+	} else {
+		hideAboutModal();
+	}
+};
 
 // handle typing correctness
 document.getElementById("game").addEventListener("keyup", (event) => {
@@ -480,30 +502,17 @@ toJs.addEventListener("click", () => {
 // handle about modal window hiding and showing
 window.addEventListener("keyup", (event) => {
 	if (event.key === "Escape") {
-		if (aboutPage.classList.contains("hidden")) {
-			addClass(gamePage, "blur");
-			removeClass(aboutPage, "hidden");
-			addClass(aboutPage, "app__aboutPage");
-		}
+		showAboutModal();
 	}
 });
 
 gamePage.addEventListener("click", () => {
-	removeClass(gamePage, "blur");
-	removeClass(aboutPage, "app__aboutPage");
-	addClass(aboutPage, "hidden");
+	console.log("app clicked");
+	hideAboutModal();
 });
 
 // handle displaying about page with about btn
-aboutBtn.addEventListener("click", () => {
-	console.log(aboutBtn);
-
-	if (aboutPage.classList.contains("hidden")) {
-		addClass(gamePage, "blur");
-		removeClass(aboutPage, "hidden");
-		addClass(aboutPage, "app__aboutPage");
-	}
-});
+aboutBtn.addEventListener("click", () => showAboutModal());
 
 // handle test restarting
 document.getElementById("newGameBtn").addEventListener("click", () => {
