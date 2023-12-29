@@ -25,6 +25,7 @@ const aboutPage = document.getElementById("about");
 const aboutBtn = document.getElementById("aboutBtn");
 const closeBtn = document.getElementById("closeBtn");
 const contactPage = document.getElementById("contactPage");
+const contactBtn = document.getElementById("contactBtn");
 const closeContact = document.getElementById("closeContactBtn");
 
 window.timer = null;
@@ -524,6 +525,10 @@ window.addEventListener("keyup", (event) => {
 		toggleOnMOdal(contactPage, "app__contactPage");
 	}
 });
+
+contactBtn.addEventListener("click", () =>
+	showModal(contactPage, "app__contactPage")
+);
 
 // handle test restarting
 document.getElementById("newGameBtn").addEventListener("click", () => {
