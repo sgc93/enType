@@ -24,6 +24,8 @@ const gamePage = document.getElementById("gamePage");
 const aboutPage = document.getElementById("about");
 const aboutBtn = document.getElementById("aboutBtn");
 const closeBtn = document.getElementById("closeBtn");
+const contactPage = document.getElementById("contactPage");
+const closeContact = document.getElementById("closeContactBtn");
 
 window.timer = null;
 window.startTime = null;
@@ -121,25 +123,25 @@ const gameOver = () => {
 	wpm.innerHTML = getWPM() + "";
 };
 
-const showAboutModal = () => {
-	if (aboutPage.classList.contains("hidden")) {
-		removeClass(aboutPage, "hidden");
-		addClass(aboutPage, "app__aboutPage");
+const showModal = (element, className) => {
+	if (element.classList.contains("hidden")) {
+		removeClass(element, "hidden");
+		addClass(element, className);
 	}
 };
 
-const hideAboutModal = () => {
-	if (aboutPage.classList.contains("app__aboutPage")) {
-		removeClass(aboutPage, "app__aboutPage");
-		addClass(aboutPage, "hidden");
+const hideModal = (element, className) => {
+	if (element.classList.contains(className)) {
+		removeClass(element, className);
+		addClass(element, "hidden");
 	}
 };
 
-const toggleOnAboutMOdal = () => {
-	if (aboutPage.classList.contains("hidden")) {
-		showAboutModal();
+const toggleOnMOdal = (element, className) => {
+	if (element.classList.contains("hidden")) {
+		showModal(element, className);
 	} else {
-		hideAboutModal();
+		hideModal(element, className);
 	}
 };
 
@@ -501,14 +503,20 @@ toJs.addEventListener("click", () => {
 // handle about modal window hiding and showing
 window.addEventListener("keyup", (event) => {
 	if (event.key === "Escape") {
-		showAboutModal();
+		toggleOnMOdal(aboutPage, "app__aboutPage");
 	}
 });
 
-aboutPage.addEventListener("click", () => hideAboutModal());
+aboutPage.addEventListener("click", () =>
+	hideModal(aboutPage, "app__aboutPage")
+);
 
-aboutBtn.addEventListener("click", () => showAboutModal());
-closeBtn.addEventListener("click", () => hideAboutModal());
+aboutBtn.addEventListener("click", () =>
+	showModal(aboutPage, "app__aboutPage")
+);
+closeBtn.addEventListener("click", () =>
+	hideModal(aboutPage, "app__aboutPage")
+);
 
 // handle test restarting
 document.getElementById("newGameBtn").addEventListener("click", () => {
