@@ -320,13 +320,18 @@ div.word {
 
 .shortcuts {
 	display: flex;
+	gap: 1rem;
+}
+
+.shortcuts > div {
+	display: flex;
 	flex-direction: column;
 	gap: 1rem;
 }
 
 .shortcut span:first-child {
 	color: var(--color-btn-bg);
-	background-color: var(--color-primary2);
+	background-color: var(--color-text-secondary);
 	padding: 0.25rem 0.5rem;
 	border-radius: 1rem;
 }
