@@ -530,6 +530,9 @@ contactBtn.addEventListener("click", () =>
 	showModal(contactPage, "app__contactPage")
 );
 
+closeContact.addEventListener("click", () =>
+	hideModal(contactPage, "app__contactPage")
+);
 // handle test restarting
 document.getElementById("newGameBtn").addEventListener("click", () => {
 	clearInterval(timer);
