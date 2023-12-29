@@ -518,6 +518,13 @@ closeBtn.addEventListener("click", () =>
 	hideModal(aboutPage, "app__aboutPage")
 );
 
+// handle contact modal window hiding and showing
+window.addEventListener("keyup", (event) => {
+	if (event.key === "Control") {
+		toggleOnMOdal(contactPage, "app__contactPage");
+	}
+});
+
 // handle test restarting
 document.getElementById("newGameBtn").addEventListener("click", () => {
 	clearInterval(timer);
