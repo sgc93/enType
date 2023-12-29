@@ -500,7 +500,7 @@ toCPlus.addEventListener("click", () => {
 
 	clearInterval(timer);
 	gameOver();
-	newGame(cPlusCode, 0);
+	newGame(cPlusCode, "Coding | C++", 0);
 });
 
 toC.addEventListener("click", () => {
@@ -514,7 +514,7 @@ toC.addEventListener("click", () => {
 
 	clearInterval(timer);
 	gameOver();
-	newGame(cCode, 0);
+	newGame(cCode, "Coding | C", 0);
 });
 
 toJs.addEventListener("click", () => {
@@ -528,7 +528,7 @@ toJs.addEventListener("click", () => {
 
 	clearInterval(timer);
 	gameOver();
-	newGame(jsCode, 0);
+	newGame(jsCode, "Coding | JavaScript", 0);
 });
 
 // handle about modal window hiding and showing
