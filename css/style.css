@@ -62,7 +62,7 @@ body {
 	padding: 0.5rem;
 }
 
-.header .links {
+.links {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -377,14 +377,12 @@ div.word {
 	height: 2rem;
 }
 
-.about-content,
-.contact-content {
+.about-content {
 	height: 85vh;
 	width: 70vw;
 }
 
-.about-header,
-.contact-header {
+.about-header {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -441,9 +439,28 @@ div.word {
 }
 
 /* contact form style */
+.contact-content {
+	width: max-content;
+}
+.contact-header {
+	gap: 1rem;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}
+.contact-header h1 {
+	font-size: 2.4rem;
+}
+.contact-content p {
+	font-size: 1.3rem;
+	font-weight: 500;
+	color: var(--color-text-secondary);
+}
 .contact-detail {
+	width: 70%;
 	gap: 3rem;
 }
+
 .email-form {
 	display: flex;
 	flex-direction: column;
@@ -466,6 +483,14 @@ div.word {
 	outline: 2px solid var(--color-error);
 }
 
+.email-form button {
+	font-size: large;
+	transition: 0.3s;
+}
+
+.media-links a {
+	text-decoration: none;
+}
 /* background blur while displaying modal windows */
 .blur {
 	filter: blur(5px);
