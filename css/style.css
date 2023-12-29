@@ -1,6 +1,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono&display=swap");
 
 :root {
+	--color-bg: #2e1a47;
+	--color-btn-bg: #27173c;
+	--color-btn-bg2: #c18fff;
+	--color-primary: #c18fff;
+	--color-primary2: #8e31ff;
+	--color-error: #f04e98;
+	--color-text-primary: #fff;
+	--color-text-secondary: #c18fff9f;
+
+	--font-words: "Roboto Nono", monospace;
+}
+
+.theme_one {
 	--color-bg: #ffffff;
 	--color-btn-bg: #ebebeb;
 	--color-btn-bg2: #2d2076;
@@ -13,15 +26,28 @@
 	--font-words: "Roboto Nono", monospace;
 }
 
-.dark_one {
-	--color-bg: #2e1a47;
-	--color-btn-bg: #27173c;
-	--color-btn-bg2: #c18fff;
-	--color-primary: #c18fff;
-	--color-primary2: #8e31ff;
-	--color-error: #f04e98;
+.theme_three {
+	--color-bg: #282828;
+	--color-btn-bg: #393737;
+	--color-btn-bg2: #ebdbb2;
+	--color-primary: #ffe091;
+	--color-primary2: #ebdbb2;
+	--color-error: #fb4934;
 	--color-text-primary: #fff;
-	--color-text-secondary: #c18fff9f;
+	--color-text-secondary: #ebdbb2a8;
+
+	--font-words: "Roboto Nono", monospace;
+}
+
+.theme_two {
+	--color-bg: #2f343f;
+	--color-btn-bg: #262b34;
+	--color-btn-bg2: #8ec268;
+	--color-primary: #8ec268;
+	--color-primary2: #96ff4bd0;
+	--color-error: #d62436;
+	--color-text-primary: #fff;
+	--color-text-secondary: #8ec268a4;
 
 	--font-words: "Roboto Nono", monospace;
 }
