@@ -29,6 +29,7 @@ const contactBtn = document.getElementById("contactBtn");
 const closeContact = document.getElementById("closeContactBtn");
 
 const themeBtn = document.getElementById("themeBtn");
+const themeList = ["theme_one", "theme_two", "theme_three", "theme_four"];
 
 window.timer = null;
 window.startTime = null;
@@ -145,6 +146,19 @@ const toggleOnMOdal = (element, className) => {
 		showModal(element, className);
 	} else {
 		hideModal(element, className);
+	}
+};
+
+let themeIndex = 0;
+const toggleTheme = () => {
+	themeList.forEach((cl) => {
+		removeClass(document.body, cl);
+	});
+	document.body.classList.add(themeList[themeIndex]);
+	if (themeIndex < 3) {
+		themeIndex += 1;
+	} else {
+		themeIndex = 0;
 	}
 };
 
@@ -285,16 +299,25 @@ document.getElementById("game").addEventListener("keyup", (event) => {
 	// 	] + "px";
 });
 
-// handling restarting the game with pressing Enter key
+// handling pressing Enter, Control, Esc and ArrowUp
 
-document.addEventListener("keyup", (e) => {
-	const key = e.key;
-	const isEnter = key === "Enter";
-	console.log(key);
-	if (isEnter) {
+document.addEventListener("keyup", (event) => {
+	if (event.key === "Enter") {
 		clearInterval(timer);
 		gameOver();
 		newGame();
+	}
+
+	if (event.key === "Escape") {
+		toggleOnMOdal(aboutPage, "app__aboutPage");
+	}
+
+	if (event.key === "Control") {
+		toggleOnMOdal(contactPage, "app__contactPage");
+	}
+
+	if (event.key === "ArrowUp") {
+		toggleTheme();
 	}
 });
 
@@ -504,11 +527,6 @@ toJs.addEventListener("click", () => {
 });
 
 // handle about modal window hiding and showing
-window.addEventListener("keyup", (event) => {
-	if (event.key === "Escape") {
-		toggleOnMOdal(aboutPage, "app__aboutPage");
-	}
-});
 
 aboutPage.addEventListener("click", () =>
 	hideModal(aboutPage, "app__aboutPage")
@@ -522,11 +540,6 @@ closeBtn.addEventListener("click", () =>
 );
 
 // handle contact modal window hiding and showing
-window.addEventListener("keyup", (event) => {
-	if (event.key === "Control") {
-		toggleOnMOdal(contactPage, "app__contactPage");
-	}
-});
 
 contactBtn.addEventListener("click", () =>
 	showModal(contactPage, "app__contactPage")
@@ -537,19 +550,8 @@ closeContact.addEventListener("click", () =>
 );
 
 // handle theme change ( toggling)
-const themeList = ["theme_one", "theme_two", "theme_three", "theme_four"];
-let themeIndex = 0;
-themeBtn.addEventListener("click", () => {
-	themeList.forEach((cl) => {
-		removeClass(document.body, cl);
-	});
-	document.body.classList.add(themeList[themeIndex]);
-	if (themeIndex < 3) {
-		themeIndex += 1;
-	} else {
-		themeIndex = 0;
-	}
-});
+
+themeBtn.addEventListener("click", () => toggleTheme());
 
 // handle test restarting
 document.getElementById("newGameBtn").addEventListener("click", () => {
