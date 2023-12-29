@@ -122,7 +122,6 @@ const gameOver = () => {
 
 const showAboutModal = () => {
 	if (aboutPage.classList.contains("hidden")) {
-		addClass(gamePage, "blur");
 		removeClass(aboutPage, "hidden");
 		addClass(aboutPage, "app__aboutPage");
 	}
@@ -130,7 +129,6 @@ const showAboutModal = () => {
 
 const hideAboutModal = () => {
 	if (aboutPage.classList.contains("app__aboutPage")) {
-		removeClass(gamePage, "blur");
 		removeClass(aboutPage, "app__aboutPage");
 		addClass(aboutPage, "hidden");
 	}
@@ -506,12 +504,8 @@ window.addEventListener("keyup", (event) => {
 	}
 });
 
-gamePage.addEventListener("click", () => {
-	console.log("app clicked");
-	hideAboutModal();
-});
+aboutPage.addEventListener("click", () => hideAboutModal());
 
-// handle displaying about page with about btn
 aboutBtn.addEventListener("click", () => showAboutModal());
 
 // handle test restarting
