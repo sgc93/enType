@@ -321,20 +321,46 @@ div.word {
 
 /* about page */
 
-.app__aboutPage {
+.modal {
 	align-self: center;
 	position: absolute;
 	height: 100vh;
 	width: 100vw;
+	backdrop-filter: blur(5px);
+	z-index: 555;
+}
 
+.modal-content {
+	align-self: center;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	gap: 1rem;
 	padding: 2rem;
+	border: 1px solid var(--color-primary2);
+	border-radius: 1.2rem;
+	background-color: var(--color-btn-bg);
 
-	backdrop-filter: blur(5px);
-	z-index: 555;
+	overflow: auto;
+}
+
+.modal-content::-webkit-scrollbar {
+	background: transparent;
+	width: 12px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+	margin-right: 1rem;
+	background: var(--color-text-secondary);
+	border-radius: 3rem;
+}
+
+.app__aboutPage {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1rem;
+	padding: 2rem;
 }
 
 .close-btn {
@@ -351,31 +377,8 @@ div.word {
 }
 
 .about-content {
-	align-self: center;
 	height: 85vh;
 	width: 70vw;
-
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	gap: 1rem;
-	padding: 2rem;
-	border: 1px solid var(--color-primary2);
-	border-radius: 1.2rem;
-	background-color: var(--color-btn-bg);
-
-	overflow: auto;
-}
-
-.about-content::-webkit-scrollbar {
-	background: transparent;
-	width: 12px;
-}
-
-.about-content::-webkit-scrollbar-thumb {
-	margin-right: 1rem;
-	background: var(--color-text-secondary);
-	border-radius: 3rem;
 }
 
 .about-header {
