@@ -324,6 +324,34 @@ div.word {
 .app__aboutPage {
 	align-self: center;
 	position: absolute;
+	height: 100vh;
+	width: 100vw;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1rem;
+	padding: 2rem;
+
+	backdrop-filter: blur(5px);
+	z-index: 555;
+}
+
+.close-btn {
+	align-self: flex-end;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	margin-right: 3rem;
+
+	font-size: 1.5rem;
+	width: 2rem;
+	height: 2rem;
+}
+
+.about-content {
+	align-self: center;
 	height: 85vh;
 	width: 70vw;
 
@@ -334,20 +362,17 @@ div.word {
 	padding: 2rem;
 	border: 1px solid var(--color-primary2);
 	border-radius: 1.2rem;
-
 	background-color: var(--color-btn-bg);
-	backdrop-filter: blur(25px);
 
 	overflow: auto;
-	z-index: 555;
 }
 
-.app__aboutPage::-webkit-scrollbar {
+.about-content::-webkit-scrollbar {
 	background: transparent;
 	width: 12px;
 }
 
-.app__aboutPage::-webkit-scrollbar-thumb {
+.about-content::-webkit-scrollbar-thumb {
 	margin-right: 1rem;
 	background: var(--color-text-secondary);
 	border-radius: 3rem;
