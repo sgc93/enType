@@ -21,7 +21,7 @@ const sendEmail = () => {
 		Username: process.env.REACT_APP_SMTP_USERNAME,
 		Password: process.env.REACT_APP_SMTP_PASSWORD,
 		To: "smachewgedefaw@gmail.com",
-		From: process.env.SMTP_ENTYPE_USERNAME,
+		From: process.env.REACT_APP_SMTP_USERNAME,
 		Subject: "About enType",
 		Body: `Name: ${name} \n Email: ${email} \n Message: ${message}`,
 	}).then((message) => {
