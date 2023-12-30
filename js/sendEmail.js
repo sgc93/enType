@@ -22,7 +22,7 @@ const sendEmail = () => {
 		Username: process.env.SMTP_ENTYPE_USERNAME,
 		Password: process.env.SMTP_ENTYPE_PASSWORD,
 		To: "smachewgedefaw@gmail.com",
-		From: "doeslucithinksgood@gmail.com",
+		From: process.env.SMTP_ENTYPE_USERNAME,
 		Subject: "About enType",
 		Body: `Name: ${name} \n Email: ${email} \n Message: ${message}`,
 	}).then((message) => {
