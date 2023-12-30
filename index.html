@@ -210,14 +210,24 @@
 						</p>
 					</div>
 					<div class="contact-detail">
-						<form class="email-form">
-							<input type="email" name="email" placeholder="email" required />
-							<input type="text" name="name" placeholder="name" required />
-							<textarea
-								name="message"
-								placeholder="message"
-								required
-							></textarea>
+						<div class="hidden" id="response">
+							<p>Thanks for your effort!🙏</p>
+							<p id="resMessage"></p>
+							<div>
+								<button class="btn" id="backBtn">back to test</button
+								><button class="btn" id="resentBtn">
+									send another message
+								</button>
+							</div>
+						</div>
+						<form
+							class="email-form"
+							id="emailForm"
+							onsubmit="sendEmail(); reset(); return false;"
+						>
+							<input type="email" id="email" placeholder="email" required />
+							<input type="text" id="name" placeholder="name" required />
+							<textarea id="message" placeholder="message" required></textarea>
 							<button type="submit" class="btn">Send</button>
 						</form>
 						<div class="media-links">
@@ -275,8 +285,9 @@
 				</div>
 			</div>
 		</section>
-
+		<script src="https://smtpjs.com/v3/smtp.js"></script>
 		<script src="./js/data.js"></script>
 		<script src="./js/script.js"></script>
+		<script src="./js/sendEmail.js"></script>
 	</body>
 </html>
