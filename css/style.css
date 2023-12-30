@@ -556,7 +556,8 @@ div.word {
 	flex-direction: column;
 }
 
-.email-form input {
+.email-form input,
+textarea {
 	margin: 7px;
 	outline: none;
 	border: none;
@@ -566,9 +567,12 @@ div.word {
 	border-radius: 7px;
 	padding: 0.5rem 1rem;
 	transition: 0.3s;
+
+	width: 100%;
 }
 
-.email-form input:focus {
+.email-form input:focus,
+textarea:focus {
 	transform: translateY(-2px);
 	outline: 2px solid var(--color-error);
 }
