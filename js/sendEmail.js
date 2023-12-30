@@ -16,7 +16,7 @@ const sendEmail = () => {
 	const email = document.getElementById("email").value;
 	const name = document.getElementById("name").value;
 	const message = document.getElementById("message").value;
-
+	console.log(process.env.SMTP_ENTYPE_USERNAME);
 	Email.send({
 		Host: "smtp.elasticemail.com",
 		Username: process.env.SMTP_ENTYPE_USERNAME,
