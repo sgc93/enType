@@ -3,7 +3,6 @@ const resentBtn = document.getElementById("resentBtn");
 const emailForm = document.getElementById("emailForm");
 const response = document.getElementById("response");
 const resMessage = document.getElementById("resMessage");
-	console.log(process.env.SMTP_ENTYPE_USERNAME);
 
 const showResponse = (message) => {
 	resMessage.innerHTML = message;
@@ -19,8 +18,8 @@ const sendEmail = () => {
 	const message = document.getElementById("message").value;
 	Email.send({
 		Host: "smtp.elasticemail.com",
-		Username: process.env.SMTP_ENTYPE_USERNAME,
-		Password: process.env.SMTP_ENTYPE_PASSWORD,
+		Username: process.env.REACT_APP_SMTP_USERNAME,
+		Password: process.env.REACT_APP_SMTP_PASSWORD,
 		To: "smachewgedefaw@gmail.com",
 		From: process.env.SMTP_ENTYPE_USERNAME,
 		Subject: "About enType",
