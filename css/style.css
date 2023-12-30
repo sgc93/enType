@@ -551,6 +551,17 @@ div.word {
 	gap: 3rem;
 }
 
+.response {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+.response p:first-child {
+	color: var(--color-primary2);
+	font-weight: 600;
+}
+
 .email-form {
 	display: flex;
 	flex-direction: column;
